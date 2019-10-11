@@ -1,0 +1,224 @@
+'''
+@Autor: https://github.com/alpdias
+'''
+# Programa principal.
+from datetime import date # Biblioteca de datas.
+import os # Biblioteca de comandos do sistema.
+from time import sleep # Biblioteca de tempo.
+import Cálculos # Biblioteca de cálculos.
+import Tratamento # Biblioteca de tratamento.
+Tratamento.Identificacao() # Identificação do usuário.
+MenuCalculos = ['Sálario liquido', # Lista com as opções de cálculos apresentada no menu inicial.
+                'Décimo terceiro', 
+                'INSS', 
+                'IRRF', 
+                'FGTS', 
+                'Férias', 
+                'Hora Extra', 
+                'Saldo FGTS',
+                'Rescisão CLT',
+                'Seguro Desemprego'] 
+while True:
+    print('-' * 30)
+    Ano = date.today().year # Variável que recebe o ano atual.
+    print(f'  \033[0;36mCÁLCULOS TRABALHISTAS {Ano}\033[m') # Título do programa inicial.
+    print('-' * 30)
+    for Indice, Lista in enumerate(MenuCalculos): # Laço para gerar um indice na lista de opções.
+            print(f'\033[0;34m[{Indice}]\033[m {Lista}') # Imprimir a lista de opções.
+    print('\033[0;31m[99] ENCERRAR PROGRAMA\033[m') # Opção para encerrar programa.
+    print('-' * 30)
+    while True:
+        Escolha = int(input('ESCOLHA UMA OPÇÃO ACIMA: ')) # Variável que recebe a opção a ser executada.
+        if Escolha == 0: # Opção para o cálculo de Sálario líquido.
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 50)
+                print('           \033[0;36mCÁLCULO DO SALÁRIO LÍQUIDO\033[m') # Título.
+                print('-' * 50)
+                SalarioLiquido = float(input('Valor do salário bruto: ')) # Variável que recebe o valor do salário bruto.
+                NumDependentesSL = int(input('Número de dependentes: ')) # Variável que recebe número de dependentes.
+                OutrosDescontos = float(input('Outros descontos: ')) # Variável que recebe o valor de outros descontos.
+                print(' ')
+                print('Cálculando... Aguarde!')
+                print(' ')
+                sleep(0.75) # Temporizador de 0.75 segundos.
+                print(f'Valor do INSS é de: \033[0;32mR$ {Cálculos.Inss(SalarioLiquido)[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do INSS.
+                print(f', alíquota de {Cálculos.Inss(SalarioLiquido)[1]}%.') # Alíquota utilizada para cálcular o INSS.
+                print(f'Valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do IRRF.
+                print(f', alíquota de {Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[1]}%.',) # Alíquota utilizada para cálcular o IRRF.
+                if Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0] == 0: # Caso não tenha desconto de IRRF.
+                    print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário.
+                print(f'Número de dependetes: \033[0;32m{NumDependentesSL}\033[m') # Mostra o número de dependentes.
+                print(f'Outros descontos: \033[0;32mR$ {OutrosDescontos:.2f}\033[m'.replace('.',','), end='') # O valor de outros descontos sobre o salário.
+                print('.')
+                print(f'O valor do sálario líquido é de: \033[0;32mR$ {Cálculos.SalarioLiquido(SalarioLiquido, NumDependentesSL, OutrosDescontos):.2f}\033[m!'.replace('.',',')) # Valor final do salário líquido.
+                print('-' * 50)
+                while True:
+                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                    if Pergunta in 'SN':
+                        print('-' * 50)
+                        print(' ')
+                        break 
+                if Pergunta == 'N':
+                    os.system('cls') or None # Comando para limpar a tela do terminal.
+                    break
+            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                break
+        elif Escolha == 1: # Opção para o cálculo de Décimo terceiro.
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 70)
+                print('                \033[0;36mCÁLCULO DO DÉCIMO TERCEIRO SÁLARIO\033[m') # Título.
+                print('-' * 70)
+                DecimoTerceiro = float(input('Valor do salário bruto: ')) # Variável que recebe o valor do salário.
+                NumDependentesDecimo = int(input('Número de dependentes: ')) # Variável que recebe número de dependentes.
+                print('(\033[0;31mConsiderar para o cálculo apenas os meses em que o')
+                print(' trabalhador tenha trabalhado mais de 15 dias no mês!\033[m)') # Aviso ao usuário.
+                MesesDecimo = float(input('Número de meses trabalhados: ')) # Variável que recebe o número de meses trabalhados.
+                print(' ')
+                print('Cálculando... Aguarde!')
+                print(' ')
+                sleep(0.75) # Temporizador de 0.75 segundos.
+                print(f'Valor da primeira parcela do décimo terceiro sálario: \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da primeira parcela do décimo terceiro(adiantamento).
+                print(f'Valor da segunda parcela do décimo terceiro sálario: \033[0;32mR$ {Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da segunda parcela do décimo terceiro.
+                print(f'Total a receber: \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo) + Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o total a receber do decimo terceiro.
+                print('-' * 70)
+                while True:
+                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                    if Pergunta in 'SN':
+                        print('-' * 50)
+                        print(' ')
+                        break 
+                if Pergunta == 'N':
+                    os.system('cls') or None # Comando para limpar a tela do terminal.
+                    break
+            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                break         
+        elif Escolha == 2: # Opção para o cálculo de INSS.
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 50)
+                print('            \033[0;36mCÁLCULO DO VALOR DO INSS\033[m') # Título.
+                print('-' * 50)
+                SalarioInss = float(input('Valor do sálario bruto: ')) # Variável que recebe valor do salário.
+                print(' ')
+                print('Cálculando... Aguarde!')
+                print(' ')
+                sleep(0.75) # Temporizador de 0.75 segundos.
+                print(f'O valor do INSS é de \033[0;32mR$ {Cálculos.Inss(SalarioInss)[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do INSS.
+                print(f', alíquota de {Cálculos.Inss(SalarioInss)[1]}%.') # Alíquota utilizada para cálcular o INSS.
+                print('-' * 50)
+                while True:
+                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                    if Pergunta in 'SN':
+                        print('-' * 50)
+                        print(' ')
+                        break 
+                if Pergunta == 'N':
+                    os.system('cls') or None # Comando para limpar a tela do terminal.
+                    break
+            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                break
+        elif Escolha == 3: # Opção para o cálculo de IRRF.
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 50)
+                print('            \033[0;36mCÁLCULO DO VALOR DO IRRF\033[m') # Título.
+                print('-' * 50)
+                SalarioIrrf = float(input('Valor do sálario bruto: ')) # Variável que recebe valor do salário.
+                NumDependentesIrrf = int(input('Número de dependentes: ')) # Variável que recebe o número de dependentes.
+                print(' ')
+                print('Cálculando... Aguarde!')
+                print(' ')
+                sleep(0.75) # Temporizador de 0.75 segundos.
+                print(f'O valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do IRRF.
+                print(f', alíquota de {Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[1]}%.') # Alíquota utilizada para cálcular o IRRF.
+                if Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[0] == 0: # Caso não tenha desconto de IRRF.
+                    print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário.
+                print('-' * 50)
+                while True:
+                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                    if Pergunta in 'SN':
+                        print('-' * 50)
+                        print(' ')
+                        break 
+                if Pergunta == 'N':
+                    os.system('cls') or None # Comando para limpar a tela do terminal.
+                    break
+            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                break
+        elif Escolha == 4: # Opção para o cálculo de FGTS.
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 50)
+                print('            \033[0;36mCÁLCULO DO VALOR DO FGTS\033[m') # Título.
+                print('-' * 50)
+                SalarioFgts = float(input('Valor do sálario bruto: ')) # Variável que recebe valor do salário.
+                print(' ')
+                print('Cálculando... Aguarde!')
+                print(' ')
+                sleep(0.75) # Temporizador de 0.75 segundos.
+                print(f'Valor do FGTS é de R$ \033[0;32m{Cálculos.Fgts(SalarioFgts):.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do FGTS.
+                print(', alíquota de 8%.') # Alíquota utilizada para o cálculo.
+                print('-' * 50)
+                while True:
+                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                    if Pergunta in 'SN':
+                        print('-' * 50)
+                        print(' ')
+                        break 
+                if Pergunta == 'N': # T
+                    os.system('cls') or None # Comando para limpar a tela do terminal.
+                    break
+            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                break
+        elif Escolha == 5: # Opção para o cálculo de Férias. 
+            continue
+        elif Escolha == 6: # Opção para o cálculo de Hora Extra.
+            continue
+        elif Escolha == 7: # Opção para o cálculo de Saldo FGTS.
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 50)
+                print('          \033[0;36mCÁLCULO DO SALDO DO FGTS\033[m') # Título.
+                print('-' * 50)
+                SalarioSaldoFgts = float(input('Valor do sálario bruto: ')) # Variável que recebe valor do salário.
+                MesesFgts = int(input('Número de meses trabalhados: ')) # Variável que recebe o número de meses trabalhados.
+                print(' ')
+                print('Cálculando... Aguarde!')
+                print(' ')
+                sleep(0.75) # Temporizador de 0.75 segundos.
+                print(f'O saldo do FGTS é de R$ \033[0;32m{Cálculos.Fgts(SalarioSaldoFgts) * MesesFgts:.2f}\033[m!'.replace('.',',')) # Resultado do cálculo do saldo do FGTS.
+                print('-' * 50)
+                while True:
+                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                    if Pergunta in 'SN':
+                        print('-' * 50)
+                        print(' ')
+                        break 
+                if Pergunta == 'N': # T
+                    os.system('cls') or None # Comando para limpar a tela do terminal.
+                    break
+            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                break
+        elif Escolha == 8: # Opção para o cálculo de Rescisão CLT.
+            continue
+        elif Escolha == 9: # Opção para o cálculo de Seguro Desemprego.
+            continue
+        elif Escolha not in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
+            if Escolha == 99:
+                break
+            print('\033[0;31mERRO! Entrada Inválida.\033[m') # Aviso de entrada inválida.
+    if Escolha == 99: # Opção para terminar o programa.
+        break # Termina o loop do menu de opções.
+print('-' * 30)
+print('       \033[1;31mFIM DO PROGRAMA\033[m') # Aviso de fim do programa.
+sleep(0.75) # Temporizador de 0.75 segundos.
+os.system('cls') or None # Comando para limpar a tela do terminal.
+Tratamento.Fechar()
