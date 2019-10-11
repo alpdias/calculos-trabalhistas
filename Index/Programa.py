@@ -180,7 +180,33 @@ while True:
         elif Escolha == 5: # Opção para o cálculo de Férias. 
             continue
         elif Escolha == 6: # Opção para o cálculo de Hora Extra.
-            continue
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 35)
+                print('       \033[0;36mCÁLCULO DE HORA EXTRA\033[m') # Título.
+                print('-' * 35)
+                MenuHoraExtra = ['Valor HORA EXTRA', 'Total HORA EXTRA'] # Lista com as opções de para hora extra.
+                for IndiceExtra, ListaExtra in enumerate(MenuHoraExtra):
+                    print(f'\033[0;34m[{IndiceExtra}]\033[m {ListaExtra}') # Imprimir a lista de opções.
+                print('\033[0;31m[88] VOLTAR AO MENU\033[m') # Opção para voltar ao menu principal.
+                print('-' * 35)
+                while True:
+                    EscolhaExtra = int(input('ESCOLHA UMA OPÇÃO ACIMA: ')) # Variável que recebe a opção a ser executada.
+                    if EscolhaExtra == 0: # Opção para o cálculo do valor da hora extra.
+                        continue
+                    elif EscolhaExtra == 1: # Opção para o cálculo do valor total da hora extra.
+                        continue
+                    elif EscolhaExtra not in [0, 1]:
+                        if EscolhaExtra == 88: # Opção para encerrar o menu de hora extra.
+                            os.system('cls') or None # Comando para limpar a tela do terminal.
+                            break
+                        else:
+                            print('\033[0;31mERRO! Entrada Inválida.\033[m') # Aviso de entrada inválida.
+                if EscolhaExtra == 88:
+                    break
+            if EscolhaExtra == 88: # Opção para encerrar o menu de hora extra.
+                    break
         elif Escolha == 7: # Opção para o cálculo de Saldo FGTS.
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
