@@ -1,5 +1,5 @@
 '''
-@Autor: https://github.com/alpdias
+@Autor: Paulo Alcântara https://github.com/alpdias
 '''
 # Programa principal.
 from datetime import date # Biblioteca de datas.
@@ -240,7 +240,8 @@ while True:
         elif Escolha not in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
             if Escolha == 99:
                 break
-            print('\033[0;31mERRO! Entrada Inválida.\033[m') # Aviso de entrada inválida.
+            else:
+                print('\033[0;31mERRO! Entrada Inválida.\033[m') # Aviso de entrada inválida.
     if Escolha == 99: # Opção para terminar o programa.
         break # Termina o loop do menu de opções.
 print('-' * 30)
