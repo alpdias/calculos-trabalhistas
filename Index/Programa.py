@@ -43,7 +43,7 @@ while True:
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor do INSS é de: \033[0;32mR$ {Cálculos.Inss(SalarioLiquido)[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do INSS.
+                print(f'Valor do INSS é de \033[0;32mR$ {Cálculos.Inss(SalarioLiquido)[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do INSS.
                 print(f', alíquota de {Cálculos.Inss(SalarioLiquido)[1]}%.') # Alíquota utilizada para cálcular o INSS.
                 print(f'Valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do IRRF.
                 print(f', alíquota de {Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[1]}%.',) # Alíquota utilizada para cálcular o IRRF.
@@ -52,7 +52,7 @@ while True:
                 print(f'Número de dependetes: \033[0;32m{NumDependentesSL}\033[m') # Mostra o número de dependentes.
                 print(f'Outros descontos: \033[0;32mR$ {OutrosDescontos:.2f}\033[m'.replace('.',','), end='') # O valor de outros descontos sobre o salário.
                 print('.')
-                print(f'O valor do sálario líquido é de: \033[0;32mR$ {Cálculos.SalarioLiquido(SalarioLiquido, NumDependentesSL, OutrosDescontos):.2f}\033[m!'.replace('.',',')) # Valor final do salário líquido.
+                print(f'O valor do sálario líquido é de \033[0;32mR$ {Cálculos.SalarioLiquido(SalarioLiquido, NumDependentesSL, OutrosDescontos):.2f}\033[m!'.replace('.',',')) # Valor final do salário líquido.
                 print('-' * 50)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
@@ -81,9 +81,9 @@ while True:
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor da primeira parcela do décimo terceiro sálario: \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da primeira parcela do décimo terceiro(adiantamento).
-                print(f'Valor da segunda parcela do décimo terceiro sálario: \033[0;32mR$ {Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da segunda parcela do décimo terceiro.
-                print(f'Total a receber: \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo) + Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o total a receber do decimo terceiro.
+                print(f'Valor da primeira parcela do décimo terceiro sálario é \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da primeira parcela do décimo terceiro(adiantamento).
+                print(f'Valor da segunda parcela do décimo terceiro sálario é \033[0;32mR$ {Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da segunda parcela do décimo terceiro.
+                print(f'Total a receber \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo) + Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o total a receber do decimo terceiro.
                 print('-' * 70)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
@@ -194,9 +194,63 @@ while True:
                 while True:
                     EscolhaExtra = int(input('ESCOLHA UMA OPÇÃO ACIMA: ')) # Variável que recebe a opção a ser executada.
                     if EscolhaExtra == 0: # Opção para o cálculo do valor da hora extra.
-                        continue
+                        os.system('cls') or None # Comando para limpar a tela do terminal.
+                        while True:
+                            os.system('cls') or None # Comando para limpar a tela do terminal.
+                            print('-' * 63)
+                            print('                  \033[0;36mCÁLCULO DO VALOR HORA EXTRA\033[m') # Título.
+                            print('-' * 63)
+                            SalarioExtra = float(input('Salário base: ')) # Variável que recebe o salário base para o cálculo da hora extra.
+                            JornadaHoras = float(input('Jornada mensal (horas): ')) # Variável que recebe a quantidade de horas da jornada de trabalho.
+                            PorcentagemExtra = int(input('Adicional hora extra (%): ')) # Variável que a porcentagem do adicional de hora extra.
+                            print(' ')
+                            print('Cálculando... Aguarde!')
+                            print(' ')
+                            sleep(0.75) # Temporizador de 0.75 segundos.
+                            print(f'O valor da sua hora é \033[0;32mR$ {Cálculos.Hora(SalarioExtra, JornadaHoras):.2f}\033[m.'.replace('.',',')) # Mostra o valor da hora.
+                            print(f'O valor da sua hora extra com adicional de {PorcentagemExtra}%', end=' ') # Mostra a porcentagem utilizada.
+                            print(f'é de \033[0;32mR$ {Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras):.2f}\033[m!'.replace('.',',')) # Mostra o valor da hora extra.
+                            print('-' * 63)
+                            while True:
+                                Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                                if Pergunta in 'SN':
+                                    print('-' * 63)
+                                    print(' ')
+                                    break 
+                            if Pergunta == 'N': # Terminar o loop.
+                                os.system('cls') or None # Comando para limpar a tela do terminal.
+                                break
+                        if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                            break
                     elif EscolhaExtra == 1: # Opção para o cálculo do valor total da hora extra.
-                        continue
+                        os.system('cls') or None # Comando para limpar a tela do terminal.
+                        while True:
+                            os.system('cls') or None # Comando para limpar a tela do terminal.
+                            print('-' * 45)
+                            print('      \033[0;36mCÁLCULO DO VALOR TOTAL HORA EXTRA\033[m') # Título.
+                            print('-' * 45)
+                            SalarioExtra = float(input('Salário base: ')) # Variável que recebe o salário base para o cálculo da hora extra.
+                            JornadaHoras = float(input('Jornada mensal (horas): ')) # Variável que recebe a quantidade de horas da jornada de trabalho.
+                            PorcentagemExtra = int(input('Adicional hora extra (%): ')) # Variável que a porcentagem do adicional de hora extra.
+                            QuantidadeExtra = float(input('Número de horas extras: ')) # Variável que a quantidade de horas extra trabalhadas.
+                            print(' ')
+                            print('Cálculando... Aguarde!')
+                            print(' ')
+                            sleep(0.75) # Temporizador de 0.75 segundos.
+                            print(f'Quantidade de horas trabalhadas: \033[0;32m{QuantidadeExtra:.2f}\033[m') # Mostra a quantidade de horas utilizadas.
+                            print(f'Valor total das horas extras \033[0;32mR$ {((Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras)) * QuantidadeExtra):.2f}\033[m!'.replace('.',',')) # Mostra o total de horas extras.
+                            print('-' * 45)
+                            while True:
+                                Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
+                                if Pergunta in 'SN':
+                                    print('-' * 50)
+                                    print(' ')
+                                    break 
+                            if Pergunta == 'N': # Terminar o loop.
+                                os.system('cls') or None # Comando para limpar a tela do terminal.
+                                break
+                        if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
+                            break
                     elif EscolhaExtra not in [0, 1]:
                         if EscolhaExtra == 88: # Opção para encerrar o menu de hora extra.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
@@ -240,7 +294,7 @@ while True:
         elif Escolha not in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
             if Escolha == 99:
                 break
-            else:
+            else: 
                 print('\033[0;31mERRO! Entrada Inválida.\033[m') # Aviso de entrada inválida.
     if Escolha == 99: # Opção para terminar o programa.
         break # Termina o loop do menu de opções.

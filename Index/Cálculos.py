@@ -107,3 +107,26 @@ def SalarioLiquido(valor=0, dep=0, desc=0):
     CalculoFinalSalario = (((valor - Inss(valor)[0]) - CalculoBaseSalario) - desc)
     return CalculoFinalSalario
 
+
+def Hora(valor=0, quant=0):
+    """
+    -> Função para cálcular o valor da hora.
+    :param valor: Valor do salário.
+    :param quant: Quantidade da jornada de horas no mês.
+    :return: Retorna o valor da hora.
+    """
+    Hora = (valor / quant)
+    return Hora
+
+
+def HoraExtra(valor=0, porc=0):
+    """
+    -> Função para cálcular o valor da hora extra.
+    :param valor: Valor do salário.
+    :param porc: Valor em porcentagem do adicional de hora extra.
+    :return: Retorna o valor da hora extra.
+    """
+    HoraExtra = (valor * (porc / 100))
+    return HoraExtra
+
+    
