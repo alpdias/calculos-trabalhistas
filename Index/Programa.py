@@ -207,7 +207,7 @@ while True:
                             print('Cálculando... Aguarde!')
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos.
-                            print(f'O valor da sua hora é \033[0;32mR$ {Cálculos.Hora(SalarioExtra, JornadaHoras):.2f}\033[m.'.replace('.',',')) # Mostra o valor da hora.
+                            print(f'O valor da sua hora é \033[0;32mR$ {Cálculos.Hora(SalarioExtra, JornadaHoras):.2f}\033[m!'.replace('.',',')) # Mostra o valor da hora.
                             print(f'O valor da sua hora extra com adicional de {PorcentagemExtra}%', end=' ') # Mostra a porcentagem utilizada.
                             print(f'é de \033[0;32mR$ {Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras):.2f}\033[m!'.replace('.',',')) # Mostra o valor da hora extra.
                             print('-' * 63)
