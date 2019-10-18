@@ -1,4 +1,4 @@
-# Funções para os cálculos de trabalhistas.
+# Funções para realizar os cálculos de trabalhistas.
 def Inss(valor=0):
     """
     -> Função para cálcular o valor do INSS.
