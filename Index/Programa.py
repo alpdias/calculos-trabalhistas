@@ -178,7 +178,33 @@ while True:
             if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
                 break
         elif Escolha == 5: # Opção para o cálculo de Férias. 
-            continue
+            os.system('cls') or None # Comando para limpar a tela do terminal.
+            while True:
+                os.system('cls') or None # Comando para limpar a tela do terminal.
+                print('-' * 60)
+                print('                     \033[0;36mCÁLCULO DE FÉRIAS\033[m') # Título.
+                print('-' * 60)
+                SalarioFerias = float(input('Salário bruto: ')) # Variável que recebe o valor do salário bruto.
+                DependentesFerias = int(input('Número de dependentes: ')) # Variável que recebe o número de dependentes.
+                MediaExtraFerias = float(input('Valor médio de horas extras no ano: ')) # Variável que recebe o valor médio de horas extras.
+                while True:
+                    DiasFerias = int(input('Dias de férias: ')) # Variável que recebe o números de férias.
+                    if DiasFerias > 30:
+                        print('(\033[1;31mO número de dias deve estar entre 10 e 30\033[m)')
+                    else:
+                        break
+                while True:
+                    Abono = str(input('Abono pecuníario (Vender 1/3) \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção de cálculo para abono.
+                    if DiasFerias == 30 and Abono == 'S':
+                        print('(\033[1;31mPara cálculos de férias com abono pecuníario (venda 1/3) o\033[m')
+                        print('\033[1;31mvalor máximo de dias de férias (dias gozados) é de 20 dias\033[m)')
+                    else:
+                        break
+                AdiantarTerco = str(input('Adiantar primeira parcela do décimo terceiro \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção para adiantar o décimo terceiro.
+                print(' ')
+                print('Cálculando... Aguarde!')
+                print(' ')
+                sleep(0.75) # Temporizador de 0.75 segundos.
         elif Escolha == 6: # Opção para o cálculo de Hora Extra.
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
