@@ -1,5 +1,5 @@
 # Calculos-Trabalhistas
-Meu primeiro programa em Python
+Meu primeiro programa criado em Python
 
 Meu primeiro programa desenvolvimento na linguagem python à partir do meu primeiro contato com a linguagem python e com a programação,
 esse programa foi desenvolvimento com intuito de aprendizagem. Trata-se um programa que realiza diversos cálculos trabalhistas à partir 
