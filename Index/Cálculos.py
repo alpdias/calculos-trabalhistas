@@ -1,4 +1,7 @@
-# Funções para realizar os cálculos de trabalhistas.
+'''
+@Autor: Paulo Alcântara https://github.com/alpdias
+'''
+# Funções para realizar os cálculos trabalhistas.
 def Inss(valor=0):
     """
     -> Função para cálcular o valor do INSS.
