@@ -1,5 +1,5 @@
 # Calculos-Trabalhistas
-Meu primeiro programa criado em Python
+Meu primeiro programa escrito em código Python
 
 Meu primeiro programa desenvolvimento na linguagem python à partir do meu primeiro contato com a linguagem python e com a programação,
 esse programa foi desenvolvimento com intuito de aprendizagem. Trata-se um programa que realiza diversos cálculos trabalhistas à partir 
@@ -7,6 +7,8 @@ da escolha do usuário que tem acesso a um menu de opções, e dos dados de entr
 opções. Esse programa foi desenvolvido para rodar inicialmente no terminal.
 
 ---------------------------------------------------------------------------------------------------------------------------------------
+
+My first program written in Python code
 
 My first development program in python language from my first contact with the python language and programming, this program was 
 developed for learning purposes. It is a program that performs various labor calculations based on the choice of the user who has 
