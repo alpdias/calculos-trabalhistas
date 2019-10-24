@@ -24,7 +24,7 @@ def Inss(valor=0):
 def Dependentes(valor=0):
     """
     -> Função para cálcular o valor da dedução por dependetes.
-    :param valor: Valor da base para cálculo da dedução por dependetes.
+    :param valor: Valor de base para o cálculo da dedução por dependetes.
     :return: Retorna o valor da dedução por dependentes.
     """
     Dependentes = 0
@@ -99,7 +99,7 @@ def Decimo(valor=0, mes=0, dep=0):
 def SalarioLiquido(valor=0, dep=0, desc=0):
     """
     -> Função para cálcular o valor do salário líquido.
-    :param valor: Valor do salário.
+    :param valor: Valor do salário bruto.
     :param dep: Número de dependentes.
     :param desc: Valor de outros descontos.
     :return: Retorna o valor do salário liquido.
@@ -113,10 +113,10 @@ def SalarioLiquido(valor=0, dep=0, desc=0):
 
 def Hora(valor=0, quant=0):
     """
-    -> Função para cálcular o valor da hora.
+    -> Função para cálcular o valor da hora/trabalho.
     :param valor: Valor do salário.
-    :param quant: Quantidade da jornada de horas no mês.
-    :return: Retorna o valor da hora.
+    :param quant: Quantidade da jornada de horas/trabalho no mês.
+    :return: Retorna o valor da hora/trabalho.
     """
     Hora = (valor / quant)
     return Hora

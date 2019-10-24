@@ -1,7 +1,10 @@
+'''
+@Autor: Paulo Alcântara https://github.com/alpdias
+'''
 # Funções para tratamento e sistema.
 def Identificacao():
     """
-    -> Função para apresentar usuário do programa.
+    -> Função para identificar e apresentar usuário do programa.
     :param: 
     :return:
     """
@@ -29,4 +32,4 @@ def Fechar():
     os.system('TASKKILL /F /IM cmd.exe') # Fechar o CMD.exe.
     os.system('TASKKILL /F /IM powershell.exe') # Fechar o PowerShell.exe.
     
-   
+    

@@ -29,7 +29,7 @@ while True:
     print('-' * 30)
     while True:
         Escolha = int(input('ESCOLHA UMA OPÇÃO ACIMA: ')) # Variável que recebe a opção a ser executada.
-        if Escolha == 0: # Opção para o cálculo de Sálario líquido.
+        if Escolha == 0: # Opção para o cálculo de sálario líquido.
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
                 os.system('cls') or None # Comando para limpar a tela do terminal.
@@ -65,7 +65,7 @@ while True:
                     break
             if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
                 break
-        elif Escolha == 1: # Opção para o cálculo de Décimo terceiro.
+        elif Escolha == 1: # Opção para o cálculo de décimo terceiro.
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
                 os.system('cls') or None # Comando para limpar a tela do terminal.
@@ -81,7 +81,7 @@ while True:
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor da primeira parcela do décimo terceiro sálario é \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da primeira parcela do décimo terceiro(adiantamento).
+                print(f'Valor da primeira parcela do décimo terceiro sálario é \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da primeira parcela do décimo terceiro (adiantamento).
                 print(f'Valor da segunda parcela do décimo terceiro sálario é \033[0;32mR$ {Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o valor da segunda parcela do décimo terceiro.
                 print(f'Total a receber \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo) + Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m!'.replace('.',',')) # Mostra o total a receber do decimo terceiro.
                 print('-' * 70)
@@ -177,7 +177,7 @@ while True:
                     break
             if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
                 break
-        elif Escolha == 5: # Opção para o cálculo de Férias. 
+        elif Escolha == 5: # Opção para o cálculo de férias. 
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
                 os.system('cls') or None # Comando para limpar a tela do terminal.
@@ -205,7 +205,7 @@ while True:
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-        elif Escolha == 6: # Opção para o cálculo de Hora Extra.
+        elif Escolha == 6: # Opção para o cálculo de hora extra.
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
                 os.system('cls') or None # Comando para limpar a tela do terminal.
@@ -287,7 +287,7 @@ while True:
                     break
             if EscolhaExtra == 88: # Opção para encerrar o menu de hora extra.
                     break
-        elif Escolha == 7: # Opção para o cálculo de Saldo FGTS.
+        elif Escolha == 7: # Opção para o cálculo de saldo do FGTS.
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
                 os.system('cls') or None # Comando para limpar a tela do terminal.
@@ -313,11 +313,11 @@ while True:
                     break
             if Pergunta == 'N': # Terminar o cálculo e voltar ao menu.
                 break
-        elif Escolha == 8: # Opção para o cálculo de Rescisão CLT.
+        elif Escolha == 8: # Opção para o cálculo de rescisão CLT.
             continue
-        elif Escolha == 9: # Opção para o cálculo de Seguro Desemprego.
+        elif Escolha == 9: # Opção para o cálculo de seguro desemprego.
             continue
-        elif Escolha not in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
+        elif Escolha not in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]: # Terminar o menu de opções.
             if Escolha == 99:
                 break
             else: 
