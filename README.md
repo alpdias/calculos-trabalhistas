@@ -1,4 +1,4 @@
-# Cálculos-Trabalhistas
+# Cálculos Trabalhistas
 Meu primeiro programa escrito em código Python
 
 Meu primeiro programa desenvolvido na linguagem python à partir do meu primeiro contato com a linguagem python e com a programação,
