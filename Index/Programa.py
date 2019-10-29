@@ -7,7 +7,7 @@ import os # Biblioteca de comandos do sistema.
 from time import sleep # Biblioteca de tempo.
 import Cálculos # Biblioteca de cálculos.
 import Tratamento # Biblioteca de tratamento.
-Tratamento.Identificacao() # Identificação do usuário.
+Tratamento.Identificacao_Carregamento() # Identificação do usuário.
 MenuCalculos = ['Sálario liquido', # Lista com as opções de cálculos apresentada no menu inicial.
                 'Décimo terceiro', 
                 'INSS', 
@@ -202,23 +202,26 @@ while True:
                         print('\033[1;31mvalor máximo de dias de férias (dias gozados) é de 20 dias\033[m)')
                     else:
                         break
-                AdiantarTerco = str(input('Adiantar primeira parcela do décimo terceiro \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção para adiantar o décimo terceiro.
+                AdiantarTerco = str(input('Adiantar a 1ª parcela do 13º salário \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção para adiantar o décimo terceiro.
                 print(' ')
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
                 print(f'Valor férias R$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias)}') # Mostra o valor férias.
                 print(f'Valor de 1/3 sobre as férias é de R$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3}') # Mostra o valor de 1/3 sobre as férias.
-                if Abono == 'S' and DiasFerias <= 20:
-                    print(f'Valor do abono pecuniário é de R$ {((SalarioFerias + MediaExtraFerias) / 3)}')
-                    print(f'Valor de 1/3 do abono pecuniário é de R$ {(((SalarioFerias + MediaExtraFerias) / 3) / 3)}')
-                # Adicionar 'AQUI' o adiantamento de décimo terceiro salario.
-                BaseImpostoFerias = (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias)) + (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3)
-                print(f'Valor do INSS é de R$ {Cálculos.Inss(BaseImpostoFerias)[0]}, alíquota de {Cálculos.Inss(BaseImpostoFerias)[1]}%')
-                if Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0] == 0:
-                    print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)')
+                if Abono == 'S' and DiasFerias <= 20: # Mostrar o cálculo do abono de acordo com opção escolhida.
+                    print(f'Valor do abono pecuniário é de R$ {((SalarioFerias + MediaExtraFerias) / 3)}') # Mostra o valor do abono.
+                    print(f'Valor de 1/3 do abono pecuniário é de R$ {(((SalarioFerias + MediaExtraFerias) / 3) / 3)}') # Mostra o valor de 1/3 sobre o abono.
+                if AdiantarTerco == 'S': # Opção para mostrar ou não valor do adiantamento de décimo terceiro.
+                    print(f'Valor do adiantamento da 1ª parcela do 3º salário é de R$ {Cálculos.Adiantamento(SalarioFerias, 12)}')  # Mostra o valor do adiantamento do décimo terceiro.
+                BaseImpostoFerias = (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias)) + (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3) # Recebe o valor base para calcular o INSS e IRRF sobre as férias.
+                print(f'Valor do INSS é de R$ {Cálculos.Inss(BaseImpostoFerias)[0]}', end='') # Mostra o valor do INSS.
+                print(f', alíquota de {Cálculos.Inss(BaseImpostoFerias)[1]}%') # Mostra a alíquota utilizada no ISS.
+                if Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0] == 0: # Recebe o valor base para cálculo do IRRF.
+                    print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário.
                 else:
-                    print(f'Valor do IRRF é de R$ {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0]}, alíquota de {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[1]}%')
+                    print(f'Valor do IRRF é de R$ {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0]}', end='') # Mostra o valor do IRRF.
+                    print(f', alíquota de {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[1]}%') # Mostra a alíquota utilizada no IRRF.
                 print('-' * 60)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
