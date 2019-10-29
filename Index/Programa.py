@@ -183,21 +183,21 @@ while True:
             os.system('cls') or None # Comando para limpar a tela do terminal.
             while True:
                 os.system('cls') or None # Comando para limpar a tela do terminal.
-                print('-' * 60)
-                print('                     \033[0;36mCÁLCULO DE FÉRIAS\033[m') # Título.
-                print('-' * 60)
+                print('-' * 70)
+                print('                         \033[0;36mCÁLCULO DE FÉRIAS\033[m') # Título.
+                print('-' * 70)
                 SalarioFerias = float(input('Salário bruto: ')) # Variável que recebe o valor do salário bruto.
                 DependentesFerias = int(input('Número de dependentes: ')) # Variável que recebe o número de dependentes.
                 MediaExtraFerias = float(input('Valor médio de horas extras no ano: ')) # Variável que recebe o valor médio de horas extras.
                 while True:
                     DiasFerias = int(input('Dias de férias: ')) # Variável que recebe o números de férias.
                     if DiasFerias > 30:
-                        print('(\033[1;31mO número de dias deve estar entre 10 e 30\033[m)')
+                        print('(\033[1;31mO número de dias de férias deve estar entre 10 e 30\033[m)')
                     else:
                         break
                 while True:
                     Abono = str(input('Abono pecuniário (Vender 1/3) \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção de cálculo para abono.
-                    if DiasFerias == 30 and Abono == 'S':
+                    if DiasFerias > 20 and Abono == 'S':
                         print('(\033[1;31mPara cálculos de férias com abono pecuniário (venda 1/3) o\033[m')
                         print('\033[1;31mvalor máximo de dias de férias (dias gozados) é de 20 dias\033[m)')
                     else:
@@ -222,11 +222,11 @@ while True:
                 else:
                     print(f'Valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0]:.2f}\033[m'.replace('.',','), end='') # Mostra o valor do IRRF.
                     print(f', alíquota de {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[1]}%') # Mostra a alíquota utilizada no IRRF.
-                print('-' * 60)
+                print('-' * 70)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou parar o programa.
                     if Pergunta in 'SN':
-                        print('-' * 50)
+                        print('-' * 70)
                         print(' ')
                         break 
                 if Pergunta == 'N': # T
