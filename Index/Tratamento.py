@@ -2,7 +2,7 @@
 @Autor: Paulo Alcântara https://github.com/alpdias
 '''
 # Funções para tratamento e sistema.
-def Identificacao():
+def Identificacao_Carregamento():
     """
     -> Função para identificar e apresentar usuário do programa.
     :param: 
@@ -10,6 +10,7 @@ def Identificacao():
     """
     import os
     from time import sleep
+    from tqdm import tqdm # Biblioteca para barra de carregamento.
     os.system('cls') or None # Comando para limpar a tela do terminal.
     Usuario = (os.getlogin()).upper() # Recebe a idenficação do usuário.
     print(' ')
@@ -18,7 +19,13 @@ def Identificacao():
     print('-' * 40)
     print(' ')
     print('Carregando programa...')
-    sleep(2.5) # Temporizador de  2.5 segundos.
+    print(' ')
+    for x in tqdm(range(12)): # Barra de carregaemnto 'barra de progresso'.
+        sleep(0.1)
+        pass
+    x = ''
+    print(x)
+    sleep(1.0) # Temporizador de  2.5 segundos.
     os.system('cls') or None # Comando para limpar a tela do terminal.
 
 
