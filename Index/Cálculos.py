@@ -132,4 +132,18 @@ def HoraExtra(valor=0, porc=0):
     HoraExtra = (valor * (porc / 100))
     return HoraExtra
 
+
+def ValorFerias(valor=0, dias=0, extra=0):
+    """
+    -> Função para cálcular o valor férias.
+    :param valor: Valor do salário base.
+    :param dias: Quantidade de dias de férias.
+    :param extra: Valor da média de extras.
+    :return: Retorna o valor férias.
+    """
+    BaseValorFerias = ((valor / 30) * dias)
+    BaseValorExtra = ((extra / 30) * dias)
+    ValorFerias = (BaseValorFerias + BaseValorExtra)
+    return ValorFerias
+
     
