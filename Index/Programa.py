@@ -207,20 +207,20 @@ while True:
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor férias R$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias)}') # Mostra o valor férias.
-                print(f'Valor de 1/3 sobre as férias é de R$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3}') # Mostra o valor de 1/3 sobre as férias.
+                print(f'Valor férias é de \033[0;32mR$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias):.2f}\033[m'.replace('.',',')) # Mostra o valor férias.
+                print(f'Valor de 1/3 sobre as férias é de \033[0;32mR$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3:.2f}\033[m'.replace('.',',')) # Mostra o valor de 1/3 sobre as férias.
                 if Abono == 'S' and DiasFerias <= 20: # Mostrar o cálculo do abono de acordo com opção escolhida.
-                    print(f'Valor do abono pecuniário é de R$ {((SalarioFerias + MediaExtraFerias) / 3)}') # Mostra o valor do abono.
-                    print(f'Valor de 1/3 do abono pecuniário é de R$ {(((SalarioFerias + MediaExtraFerias) / 3) / 3)}') # Mostra o valor de 1/3 sobre o abono.
+                    print(f'Valor do abono pecuniário é de \033[0;32mR$ {((SalarioFerias + MediaExtraFerias) / 3):.2f}\033[m'.replace('.',',')) # Mostra o valor do abono.
+                    print(f'Valor de 1/3 do abono pecuniário é de \033[0;32mR$ {(((SalarioFerias + MediaExtraFerias) / 3) / 3):.2f}\033[m'.replace('.',',')) # Mostra o valor de 1/3 sobre o abono.
                 if AdiantarTerco == 'S': # Opção para mostrar ou não valor do adiantamento de décimo terceiro.
-                    print(f'Valor do adiantamento da 1ª parcela do 3º salário é de R$ {Cálculos.Adiantamento(SalarioFerias, 12)}')  # Mostra o valor do adiantamento do décimo terceiro.
+                    print(f'Valor do adiantamento da 1ª parcela do 3º salário é de \033[0;32mR$ {Cálculos.Adiantamento(SalarioFerias, 12):.2f}\033[m'.replace('.',','))  # Mostra o valor do adiantamento do décimo terceiro.
                 BaseImpostoFerias = (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias)) + (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3) # Recebe o valor base para calcular o INSS e IRRF sobre as férias.
-                print(f'Valor do INSS é de R$ {Cálculos.Inss(BaseImpostoFerias)[0]}', end='') # Mostra o valor do INSS.
+                print(f'Valor do INSS é de \033[0;32mR$ {Cálculos.Inss(BaseImpostoFerias)[0]:.2f}\033[m'.replace('.',','), end='') # Mostra o valor do INSS.
                 print(f', alíquota de {Cálculos.Inss(BaseImpostoFerias)[1]}%') # Mostra a alíquota utilizada no ISS.
                 if Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0] == 0: # Recebe o valor base para cálculo do IRRF.
                     print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário.
                 else:
-                    print(f'Valor do IRRF é de R$ {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0]}', end='') # Mostra o valor do IRRF.
+                    print(f'Valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0]:.2f}\033[m'.replace('.',','), end='') # Mostra o valor do IRRF.
                     print(f', alíquota de {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[1]}%') # Mostra a alíquota utilizada no IRRF.
                 print('-' * 60)
                 while True:
@@ -292,7 +292,7 @@ while True:
                             print('Cálculando... Aguarde!')
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos.
-                            print(f'Quantidade de horas trabalhadas: \033[0;32m{QuantidadeExtra:.2f}\033[m') # Mostra a quantidade de horas utilizadas.
+                            print(f'Quantidade de horas trabalhadas: \033[0;32m{QuantidadeExtra:.2f}\033[m'.replace('.',':')) # Mostra a quantidade de horas utilizadas.
                             print(f'Valor total das horas extras \033[0;32mR$ {((Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras)) * QuantidadeExtra):.2f}\033[m!'.replace('.',',')) # Mostra o total de horas extras.
                             print('-' * 45)
                             while True:
