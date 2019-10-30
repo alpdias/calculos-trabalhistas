@@ -36,7 +36,7 @@ def Dependentes(valor=0):
 def Irrf(valor=0):
     """
     -> Função para cálcular o valor do IRRF.
-    :param valor: Valor do salário.
+    :param valor: Valor base do salário para cálculo do IRRF.
     :return: Retorna o valor do IRRF e alíquota utilizada.
     """
     Irrf = []
@@ -44,16 +44,16 @@ def Irrf(valor=0):
         Irrf.append(0)
         Irrf.append(0)
     elif valor >= 1903.99 and valor <= 2826.65:
-        Irrf.append((valor * 7.5) / 100 - 142.80) # Alíquota de 7.5% menos parcela de dedução.
+        Irrf.append((valor * 7.5) / 100 - 142.80) # Alíquota de 7.5%, menos parcela de dedução.
         Irrf.append('7,5')
     elif valor >= 2826.66 and valor <= 3751.05:
-        Irrf.append((valor * 15) / 100 - 354.80) # Alíquota de 15% menos parcela de dedução.
+        Irrf.append((valor * 15) / 100 - 354.80) # Alíquota de 15%, menos parcela de dedução.
         Irrf.append('15')
     elif valor >= 3751.06 and valor <= 4664.68:
-        Irrf.append((valor * 22.5) / 100 - 636.13) # Alíquota de 22.5% menos parcela de dedução.
+        Irrf.append((valor * 22.5) / 100 - 636.13) # Alíquota de 22.5%, menos parcela de dedução.
         Irrf.append('22,5')
     elif valor > 4664.68:
-        Irrf.append((valor * 27.5) / 100 - 869.36) # Alíquota de 27.5% menos parcela de dedução.
+        Irrf.append((valor * 27.5) / 100 - 869.36) # Alíquota de 27.5%, menos parcela de dedução.
         Irrf.append('27,5')
     return Irrf 
 
@@ -83,7 +83,7 @@ def Adiantamento(valor=0, mes=0):
 def Decimo(valor=0, mes=0, dep=0):
     """
     -> Função para cálcular o valor da segunda parcela do décimo terceiro.
-    :param valor: Valor do salário.
+    :param valor: Valor base do salário para cálcular a segunda parcela do décimo terceiro.
     :param mes: Número de meses trabalhados.
     :param dep: Número de dependentes.
     :return: Retorna o valor da segunda parcela do décimo terceiro.
@@ -115,7 +115,7 @@ def Hora(valor=0, quant=0):
     """
     -> Função para cálcular o valor da hora/trabalho.
     :param valor: Valor do salário.
-    :param quant: Quantidade da jornada de horas/trabalho no mês.
+    :param quant: Quantidade da jornada de hora/trabalho no mês.
     :return: Retorna o valor da hora/trabalho.
     """
     Hora = (valor / quant)
@@ -138,7 +138,7 @@ def ValorFerias(valor=0, dias=0, extra=0):
     -> Função para cálcular o valor férias.
     :param valor: Valor do salário base.
     :param dias: Quantidade de dias de férias.
-    :param extra: Valor da média de extras.
+    :param extra: Valor da média de horas extras no ano.
     :return: Retorna o valor férias.
     """
     BaseValorFerias = ((valor / 30) * dias)
@@ -146,4 +146,3 @@ def ValorFerias(valor=0, dias=0, extra=0):
     ValorFerias = (BaseValorFerias + BaseValorExtra)
     return ValorFerias
 
-    
