@@ -26,7 +26,7 @@ options. This program was designed to initially run on the terminal.
 
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
-Coding: -*- coding: utf-8 -*- </br>
+Coding: -&lowast;- coding: utf-8 -&lowast;- </br>
 PT-BR </br>
 
 Remarks: Program has color coded 'syntax' errors when running In Python IDE, 
