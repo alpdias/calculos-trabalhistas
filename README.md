@@ -8,7 +8,8 @@ opções. Esse programa foi desenvolvido para rodar inicialmente no terminal.
 
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
-Códificação: -*- coding: utf-8 -*- / PT-BR </br>
+Códificação: -&lowast;- coding: utf-8 -&lowast;- </br>
+PT-BR </br>
 
 Observações: Programa apresenta erros de 'syntax' com os códigos de cores ao ser executado 
 na IDE do Python, o programa foi criado e utilizado com 100% das suas funções na IDE do VSCode
@@ -25,7 +26,8 @@ options. This program was designed to initially run on the terminal.
 
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
-Coding: -*- coding: utf-8 -*- / PT-BR </br>
+Coding: -*- coding: utf-8 -*- </br>
+PT-BR </br>
 
 Remarks: Program has color coded 'syntax' errors when running In Python IDE, 
 the program was created and used with 100% of its functions in VSCode IDE
