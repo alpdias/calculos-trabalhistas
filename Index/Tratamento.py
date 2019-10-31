@@ -25,7 +25,7 @@ def BarraDeProgresso():
     os.system('cls') or None # Comando para limpar a tela do terminal.
 
 
-def Fechar():
+def FecharPrograma():
     """
     -> Função de fechar terminal aberto.
     :param: 
@@ -37,7 +37,7 @@ def Fechar():
     os.system('TASKKILL /F /IM powershell.exe') # Fechar o PowerShell.exe.
     
 
-def idenficaçao():
+def Idenficaçao():
     """
     -> Função para identificar e apresentar usuário do programa.
     :param: 
