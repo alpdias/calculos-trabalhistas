@@ -6,7 +6,7 @@ esse programa foi desenvolvido com intuito de aprendizagem. Trata-se de um progr
 da escolha do usuário que tem acesso a um menu de opções, e dos dados de entrada inseridos pelo usuário, retornando resultados e novas
 opções. Esse programa foi desenvolvido para rodar inicialmente no terminal.
 
-Python 3.7.4
+Python 3.7.4 </br>
 Microsoft VSCode 1.38.1
 Códificação: -*- coding: utf-8 -*- / PT-BR
 
