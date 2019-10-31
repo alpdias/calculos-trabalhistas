@@ -37,7 +37,7 @@ def FecharPrograma():
     os.system('TASKKILL /F /IM powershell.exe') # Fechar o PowerShell.exe.
     
 
-def Idenficaçao():
+def Idenficação():
     """
     -> Função para identificar e apresentar usuário do programa.
     :param: 
