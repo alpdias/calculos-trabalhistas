@@ -2,15 +2,17 @@
 Meu primeiro programa escrito em código Python
 
 Meu primeiro programa desenvolvido na linguagem python à partir do meu primeiro contato com a linguagem python e com a programação,
-esse programa foi desenvolvido com intuito de aprendizagem. Trata-se um programa que realiza diversos cálculos trabalhistas à partir 
+esse programa foi desenvolvido com intuito de aprendizagem. Trata-se de um programa que realiza diversos cálculos trabalhistas à partir 
 da escolha do usuário que tem acesso a um menu de opções, e dos dados de entrada inseridos pelo usuário, retornando resultados e novas
 opções. Esse programa foi desenvolvido para rodar inicialmente no terminal.
 
-Python 3.7.4 / Microsoft VSCode 1.38.1 / Códificação: -*- coding: utf-8 -*- / PT-BR
+Python 3.7.4
+Microsoft VSCode 1.38.1
+Códificação: -*- coding: utf-8 -*- / PT-BR
 
 Observações: Programa apresenta erros de 'syntax' com os códigos de cores ao ser executado 
 na IDE do Python, o programa foi criado e utilizado com 100% das suas funções na IDE do VSCode
-(Pode ser executado tambem no terminal de comando).
+(Pode ser executado também no terminal de comando).
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -21,7 +23,9 @@ This program was developed for learning purposes. It is a program that performs 
 choosing the user who has access to a menu of options, and the input data entered by the user, returning results and new
 options. This program was designed to initially run on the terminal.
 
-Python 3.7.4 / Microsoft VSCode 1.38.1 / Coding: -*- coding: utf-8 -*- / PT-BR
+Python 3.7.4
+Microsoft VSCode 1.38.1
+Coding: -*- coding: utf-8 -*- / PT-BR
 
 Remarks: Program has color coded 'syntax' errors when running In Python IDE, 
 the program was created and used with 100% of its functions in VSCode IDE
