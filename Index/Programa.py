@@ -17,7 +17,7 @@ MenuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresen
                 'Hora Extra', 
                 'Saldo FGTS'] 
 while True: # Loop do menu principal.
-    Tratamento.idenficaçao() # Função p/ Identificação do usuário.
+    Tratamento.Idenficação() # Função p/ Identificação do usuário.
     print('-' * 30)
     Ano = date.today().year # Variável que recebe o ano atual.
     print(f'  \033[0;36mCÁLCULOS TRABALHISTAS {Ano}\033[m') # Título do programa.
@@ -351,4 +351,4 @@ print('-' * 30)
 print('       \033[1;31mFIM DO PROGRAMA\033[m') # Aviso de fim do programa.
 sleep(0.75) # Temporizador de 0.75 segundos.
 os.system('cls') or None # Comando para limpar a tela do terminal.
-Tratamento.Fechar() # Função para fechar o terminal de comando.
+Tratamento.FecharPrograma() # Função para fechar o terminal de comando.
