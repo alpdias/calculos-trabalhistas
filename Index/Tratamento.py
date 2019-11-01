@@ -27,7 +27,7 @@ def BarraDeProgresso():
 
 def FecharPrograma():
     """
-    -> Função de fechar terminal aberto.
+    -> Função de fechar terminal aberto no windows.
     :param: 
     :return:
     """
@@ -47,4 +47,15 @@ def Idenficação():
     Usuario = (os.getlogin()).upper() # Recebe a idenficação do usuário.
     print(' ')
     print(f'Usuário: \033[0;36m{Usuario}\033[m') # Mostra o nome do usuário.
+
+
+def Milhares(numero=0):
+    """
+    -> Função tratar o número separando por milhares no padrão do local.
+    :param numero: Número para ser formatado.
+    :return: Número formatado.
+    """
+    import locale
+    locale.setlocale(locale.LC_ALL, "pt-BR")
+    return (locale.format_string("%.2f", numero, grouping=True, monetary=True))
 

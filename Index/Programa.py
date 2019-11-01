@@ -42,16 +42,16 @@ while True: # Loop do menu principal.
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor do INSS é de \033[0;32mR$ {Cálculos.Inss(SalarioLiquido)[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do INSS.
+                print(f'Valor do INSS é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Inss(SalarioLiquido)[0])}\033[m', end='') # Resultado do cálculo do INSS.
                 print(f', alíquota de {Cálculos.Inss(SalarioLiquido)[1]}%') # Alíquota utilizada para cálcular o INSS.
                 if Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0] == 0: # Opção caso não tenha desconto de IRRF.
                     print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário.
                 else:
-                    print(f'Valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0]:.2f}\033[m'.replace('.',','), end='') # Resultado do cálculo do IRRF.
+                    print(f'Valor do IRRF é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0])}\033[m', end='') # Resultado do cálculo do IRRF.
                     print(f', alíquota de {Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[1]}%',) # Alíquota utilizada para cálcular o IRRF.
                 print(f'Número de dependetes: \033[0;32m{NumDependentesSL}\033[m') # Mostra o número de dependentes utilizado.
-                print(f'Outros descontos: \033[0;32mR$ {OutrosDescontos:.2f}\033[m'.replace('.',',')) # Mostra o valor de outros descontos sobre o salário.
-                print(f'O valor do salário líquido é de \033[0;32mR$ {Cálculos.SalarioLiquido(SalarioLiquido, NumDependentesSL, OutrosDescontos):.2f}\033[m'.replace('.',',')) # Mostra o valor final do salário líquido.
+                print(f'Outros descontos: \033[0;32mR$ {Tratamento.Milhares(OutrosDescontos)}\033[m') # Mostra o valor de outros descontos sobre o salário.
+                print(f'O valor do salário líquido é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.SalarioLiquido(SalarioLiquido, NumDependentesSL, OutrosDescontos))}\033[m') # Mostra o valor final do salário líquido.
                 print('-' * 50)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
@@ -80,9 +80,9 @@ while True: # Loop do menu principal.
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor da 1ª parcela do 13º salário é de \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo):.2f}\033[m'.replace('.',',')) # Mostra o valor da primeira parcela do décimo terceiro (adiantamento).
-                print(f'Valor da 2ª parcela do 13º salário é de \033[0;32mR$ {Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m'.replace('.',',')) # Mostra o valor da segunda parcela do décimo terceiro.
-                print(f'Valor total a receber do 13º salário é de \033[0;32mR$ {Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo) + Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo):.2f}\033[m'.replace('.',',')) # Mostra o total a receber do decimo terceiro.
+                print(f'Valor da 1ª parcela do 13º salário é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo))}\033[m') # Mostra o valor da 1ª parcela do 13º salário (adiantamento).
+                print(f'Valor da 2ª parcela do 13º salário é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo))}\033[m') # Mostra o valor da 2ª parcela do 13º salário.
+                print(f'Valor total a receber do 13º salário é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo) + Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo))}\033[m') # Mostra o total a receber do 13º.
                 print('-' * 60)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
@@ -107,7 +107,7 @@ while True: # Loop do menu principal.
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'O valor do INSS é de \033[0;32mR$ {Cálculos.Inss(SalarioInss)[0]:.2f}\033[m'.replace('.',','), end='') # Mostra o resultado do cálculo do INSS.
+                print(f'O valor do INSS é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Inss(SalarioInss)[0])}\033[m', end='') # Mostra o resultado do cálculo do INSS.
                 print(f', alíquota de {Cálculos.Inss(SalarioInss)[1]}%') # Alíquota utilizada para cálcular o INSS.
                 print('-' * 50)
                 while True:
@@ -134,10 +134,10 @@ while True: # Loop do menu principal.
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                if Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[0] == 0: # Opção caso não tenha desconto de IRRF.
+                if Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[0] == 0: # Opção caso não tenha o desconto de IRRF.
                     print('\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m') # Aviso ao usuário.
                 else:
-                    print(f'O valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[0]:.2f}\033[m'.replace('.',','), end='') # Mostra o resultado do cálculo do IRRF.
+                    print(f'O valor do IRRF é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[0])}\033[m', end='') # Mostra o resultado do cálculo do IRRF.
                     print(f', alíquota de {Cálculos.Irrf((SalarioIrrf - Cálculos.Inss(SalarioIrrf)[0]) - Cálculos.Dependentes(NumDependentesIrrf))[1]}%') # Alíquota utilizada para cálcular o IRRF.
                 print('-' * 50)
                 while True:
@@ -163,11 +163,11 @@ while True: # Loop do menu principal.
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor do FGTS é de R$ \033[0;32m{Cálculos.Fgts(SalarioFgts):.2f}\033[m'.replace('.',','), end='') # Mostra o resultado do cálculo do FGTS.
+                print(f'Valor do FGTS é de R$ \033[0;32m{Tratamento.Milhares(Cálculos.Fgts(SalarioFgts))}\033[m', end='') # Mostra o resultado do cálculo do FGTS.
                 print(', alíquota de 8%') # Alíquota utilizada para o cálculo do FGTS.
                 print('-' * 50)
                 while True:
-                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou  para parar o programa.
+                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
                     if Pergunta in 'SN':
                         print('-' * 50)
                         print(' ')
@@ -200,26 +200,26 @@ while True: # Loop do menu principal.
                         print('\033[1;31mvalor máximo de dias de férias (dias gozados) é de 20 dias\033[m)')
                     else:
                         break
-                AdiantarTerco = str(input('Adiantar a 1ª parcela do 13º salário \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção para adiantar o décimo terceiro.
+                AdiantarTerco = str(input('Adiantar a 1ª parcela do 13º salário \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção para adiantar o 13º.
                 print(' ')
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'Valor férias é de \033[0;32mR$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias):.2f}\033[m'.replace('.',',')) # Mostra o valor férias.
-                print(f'Valor de 1/3 sobre as férias é de \033[0;32mR$ {Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3:.2f}\033[m'.replace('.',',')) # Mostra o valor de 1/3 sobre as férias.
+                print(f'Valor férias é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias))}\033[m') # Mostra o valor férias cálculado.
+                print(f'Valor de 1/3 sobre as férias é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3)}\033[m') # Mostra o valor de 1/3 sobre as férias cálculado.
                 if Abono == 'S' and DiasFerias <= 20: # Mostrar o resultado do cálculo do abono de acordo com opção escolhida.
-                    print(f'Valor do abono pecuniário é de \033[0;32mR$ {((SalarioFerias + MediaExtraFerias) / 3):.2f}\033[m'.replace('.',',')) # Mostra o valor do abono.
-                    print(f'Valor de 1/3 do abono pecuniário é de \033[0;32mR$ {(((SalarioFerias + MediaExtraFerias) / 3) / 3):.2f}\033[m'.replace('.',',')) # Mostra o valor de 1/3 sobre o abono.
-                if AdiantarTerco == 'S': # Opção para mostrar ou não valor do adiantamento do décimo terceiro.
-                    print(f'Valor do adiantamento da 1ª parcela do 3º salário é de \033[0;32mR$ {Cálculos.Adiantamento(SalarioFerias, 12):.2f}\033[m'.replace('.',','))  # Mostra o valor do adiantamento do décimo terceiro.
+                    print(f'Valor do abono pecuniário é de \033[0;32mR$ {Tratamento.Milhares(((SalarioFerias + MediaExtraFerias) / 3))}\033[m') # Mostra o valor cálculado para o abono.
+                    print(f'Valor de 1/3 do abono pecuniário é de \033[0;32mR$ {Tratamento.Milhares((((SalarioFerias + MediaExtraFerias) / 3) / 3))}\033[m') # Mostra o valor cálculado de 1/3 sobre o abono.
+                if AdiantarTerco == 'S': # Opção para mostrar ou não valor do adiantamento do 13º.
+                    print(f'Valor do adiantamento da 1ª parcela do 3º salário é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Adiantamento(SalarioFerias, 12))}\033[m')  # Mostra o valor cálculado do adiantamento do 13º salário.
                 BaseImpostoFerias = (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias)) + (Cálculos.ValorFerias(SalarioFerias, DiasFerias, MediaExtraFerias) / 3) # Recebe o valor base para calcular o INSS e o IRRF sobre as férias.
-                print(f'Valor do INSS é de \033[0;32mR$ {Cálculos.Inss(BaseImpostoFerias)[0]:.2f}\033[m'.replace('.',','), end='') # Mostra o valor do INSS.
-                print(f', alíquota de {Cálculos.Inss(BaseImpostoFerias)[1]}%') # Mostra a alíquota utilizada no INSS.
-                if Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0] == 0: # Recebe o valor base para cálculo do IRRF.
+                print(f'Valor do INSS é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Inss(BaseImpostoFerias)[0])}\033[m', end='') # Mostra o cálculo do valor do INSS.
+                print(f', alíquota de {Cálculos.Inss(BaseImpostoFerias)[1]}%') # Mostra a alíquota utilizada para calcular o INSS.
+                if Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0] == 0: # Recebe o valor base para o cálculo do IRRF.
                     print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário.
                 else:
-                    print(f'Valor do IRRF é de \033[0;32mR$ {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0]:.2f}\033[m'.replace('.',','), end='') # Mostra o valor do IRRF.
-                    print(f', alíquota de {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[1]}%') # Mostra a alíquota utilizada no IRRF.
+                    print(f'Valor do IRRF é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[0])}\033[m', end='') # Mostra o valor cálculado do IRRF.
+                    print(f', alíquota de {Cálculos.Irrf((BaseImpostoFerias - Cálculos.Inss(BaseImpostoFerias)[0]) - Cálculos.Dependentes(DependentesFerias))[1]}%') # Mostra a alíquota utilizada para calcular o IRRF.
                 print('-' * 70)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
@@ -260,12 +260,12 @@ while True: # Loop do menu principal.
                             print('Cálculando... Aguarde!')
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos.
-                            print(f'O valor da sua hora é \033[0;32mR$ {Cálculos.Hora(SalarioExtra, JornadaHoras):.2f}\033[m'.replace('.',',')) # Mostra o valor da hora.
-                            print(f'O valor da sua hora extra com adicional de {PorcentagemExtra}%', end=' ') # Mostra a porcentagem utilizada.
-                            print(f'é de \033[0;32mR$ {Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras):.2f}\033[m'.replace('.',',')) # Mostra o valor da hora extra.
+                            print(f'O valor da sua hora é \033[0;32mR$ {Tratamento.Milhares(Cálculos.Hora(SalarioExtra, JornadaHoras))}\033[m') # Mostra o cálculo do valor da hora.
+                            print(f'O valor da sua hora extra com adicional de {PorcentagemExtra}%', end=' ') # Mostra a porcentagem utilizada para cálcular a hora.
+                            print(f'é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras))}\033[m') # Mostra o valor da hora extra cálculado.
                             print('-' * 63)
                             while True:
-                                Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                                Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o primeiro cálculo.
                                 if Pergunta in 'SN':
                                     print('-' * 63)
                                     print(' ')
@@ -290,11 +290,11 @@ while True: # Loop do menu principal.
                             print('Cálculando... Aguarde!')
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos.
-                            print(f'Quantidade de horas trabalhadas: \033[0;32m{QuantidadeExtra:.2f}\033[m'.replace('.',':')) # Mostra a quantidade de horas utilizadas.
-                            print(f'Valor total das horas extras \033[0;32mR$ {((Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras)) * QuantidadeExtra):.2f}\033[m'.replace('.',',')) # Mostra o valor total de horas extras.
+                            print(f'Quantidade de horas trabalhadas: \033[0;32m{QuantidadeExtra:.2f}\033[m'.replace('.',':')) # Mostra a quantidade de horas utilizadas para fazer o cálculo.
+                            print(f'Valor total das horas extras \033[0;32mR$ {Tratamento.Milhares(((Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras)) * QuantidadeExtra))}\033[m') # Mostra o valor total de horas extras cálculados.
                             print('-' * 45)
                             while True:
-                                Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                                Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o cálculo.
                                 if Pergunta in 'SN':
                                     print('-' * 50)
                                     print(' ')
@@ -327,7 +327,7 @@ while True: # Loop do menu principal.
                 print('Cálculando... Aguarde!')
                 print(' ')
                 sleep(0.75) # Temporizador de 0.75 segundos.
-                print(f'O saldo do FGTS é de +/- R$ \033[0;32m{Cálculos.Fgts(SalarioSaldoFgts) * MesesFgts:.2f}\033[m'.replace('.',',')) # Resultado do cálculo do saldo do FGTS.
+                print(f'O saldo do FGTS é de +/- \033[0;32mR$ {Tratamento.Milhares(Cálculos.Fgts(SalarioSaldoFgts) * MesesFgts)}\033[m') # Resultado do cálculo do saldo do FGTS.
                 print('-' * 50)
                 while True:
                     Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
@@ -351,4 +351,4 @@ print('-' * 30)
 print('       \033[1;31mFIM DO PROGRAMA\033[m') # Aviso de fim do programa.
 sleep(0.75) # Temporizador de 0.75 segundos.
 os.system('cls') or None # Comando para limpar a tela do terminal.
-Tratamento.FecharPrograma() # Função para fechar o terminal de comando.
+Tratamento.FecharPrograma() # Função para fechar o terminal de comando no windowns.
