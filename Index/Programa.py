@@ -250,7 +250,7 @@ while True: # Loop do menu principal.
                         try:
                             os.system('cls') or None # Comando para limpar a tela do terminal.
                             print('-' * 80)
-                            print(' ' * 33 + '\033[0;36mCÁLCULO DE FÉRIAS\033[m') # Título.
+                            print(' ' * 30 + '\033[0;36mCÁLCULO DE FÉRIAS\033[m') # Título.
                             print('-' * 80)
                             SalarioFerias = float(input('Salário bruto: ')) # Variável que recebe o valor do salário bruto.
                             DependentesFerias = int(input('Número de dependentes: ')) # Variável que recebe o número de dependentes.
@@ -265,12 +265,23 @@ while True: # Loop do menu principal.
                                     break
                             while True:
                                 Abono = str(input('Abono pecuniário (Vender 1/3) \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção de cálculo para o abono.
-                                if DiasFerias > 20 and Abono == 'S':
-                                    print('(\033[1;31mPara cálculos de férias com abono pecuniário (venda 1/3) o\033[m')
-                                    print('\033[1;31mvalor máximo de dias de férias (dias gozados) é de 20 dias\033[m)')
-                                else:
+                                if Abono == 'N':
                                     break
-                            AdiantarTerco = str(input('Adiantar a 1ª parcela do 13º salário \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção para adiantar o 13º.
+                                elif Abono != 'S':
+                                    print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m')
+                                elif DiasFerias <= 20 and Abono == 'S':
+                                    break
+                                elif DiasFerias > 20 and Abono == 'S':
+                                    print('(\033[1;31mPara cálculos de férias com abono pecuniário (venda 1/3) o valor máximo de dias\033[m')
+                                    print('\033[1;31m de férias (dias gozados) é de 20 dias\033[m)')
+                            while True:
+                                AdiantarTerco = str(input('Adiantar a 1ª parcela do 13º salário \033[1;31m[S/N]\033[m: ')).strip().upper() # Variável que recebe a opção para adiantar o 13º.
+                                if AdiantarTerco == 'N':
+                                    break
+                                elif AdiantarTerco != 'S':
+                                    print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m')
+                                elif AdiantarTerco == 'S':
+                                    break
                         except ValueError: # Caso aconteça um 'ValueError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
                             sleep(1)
@@ -405,7 +416,7 @@ while True: # Loop do menu principal.
                                     if Pergunta == 'S' or Pergunta == 'N':
                                         print('-' * 80)
                                         break 
-                                print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m') # Aviso ao usuário.
+                                    print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m') # Aviso ao usuário.
                                 if Pergunta == 'N': # Terminar o loop.
                                     os.system('cls') or None # Comando para limpar a tela do terminal.
                                     break
@@ -420,7 +431,7 @@ while True: # Loop do menu principal.
                     if EscolhaExtra == 88:
                         break
                 if EscolhaExtra == 88: # Opção para encerrar o menu de hora extra e voltar ao menu principal.
-                        break
+                    break
             elif Escolha == 7: # Opção para o cálculo de saldo do FGTS.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
