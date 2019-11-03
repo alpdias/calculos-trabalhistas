@@ -21,7 +21,7 @@ def BarraDeProgresso():
         pass
     x = ''
     print(x)
-    sleep(1) # Temporizador de 1 segundo.
+    sleep(2) # Temporizador de 1 segundo.
     os.system('cls') or None # Comando para limpar a tela do terminal.
 
 

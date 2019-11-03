@@ -17,13 +17,13 @@ MenuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresen
                 'Hora Extra', 
                 'Saldo FGTS'] 
 while True: # Loop do menu principal.
-    Tratamento.Idenficação() # Função p/ Identificação do usuário.
+    Tratamento.Idenficação() # Função para fazer a identificação do usuário.
     print('-' * 80)
     Ano = date.today().year # Variável que recebe o ano atual.
     print(' ' * 26 + f'\033[0;36mCÁLCULOS TRABALHISTAS {Ano}\033[m') # Título do programa.
     print('-' * 80)
     for Indice, Lista in enumerate(MenuCalculos): # Laço para gerar um indice na lista de opções.
-            print(f'\033[0;34m[{Indice}]\033[m {Lista}') # Imprimir a lista de opções.
+        print(f'\033[0;34m[{Indice}]\033[m {Lista}') # Imprimir a lista de opções.
     print('\033[0;31m[99] ENCERRAR PROGRAMA\033[m') # Opção para encerrar programa.
     print('-' * 80)
     try: # Tente executar os comandos.
@@ -33,7 +33,7 @@ while True: # Loop do menu principal.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True: 
-                        try:
+                        try: # Tente executar os comandos.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
                             print('-' * 80)
                             print(' ' * 26 + '\033[0;36mCÁLCULO DO SALÁRIO LÍQUIDO\033[m') # Título.
@@ -41,9 +41,9 @@ while True: # Loop do menu principal.
                             SalarioLiquido = float(input('Valor do salário bruto: ')) # Variável que recebe o valor do salário bruto.
                             NumDependentesSL = int(input('Número de dependentes: ')) # Variável que recebe número de dependentes.
                             OutrosDescontos = float(input('Outros descontos: ')) # Variável que recebe o valor de outros descontos.
-                        except ValueError: # Caso aconteça um 'ValueError' informe.
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                            sleep(1)
+                            sleep(1.5)
                             os.system('cls') or None
                         except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
                             print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
@@ -68,7 +68,7 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
                         if Pergunta == 'S' or Pergunta == 'N':
                             print('-' * 80)
                             break 
@@ -82,7 +82,7 @@ while True: # Loop do menu principal.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True:
-                        try:
+                        try: # Tente executar os comandos.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
                             print('-' * 80)
                             print(' ' * 22 + '\033[0;36mCÁLCULO DO DÉCIMO TERCEIRO SALÁRIO\033[m') # Título.
@@ -92,9 +92,9 @@ while True: # Loop do menu principal.
                             print('(\033[0;31mConsiderar para o cálculo apenas os meses em que o trabalhador tenha trabalhado')
                             print(' mais de 15 dias no mês!\033[m)') # Aviso ao usuário.
                             MesesDecimo = float(input('Número de meses trabalhados: ')) # Variável que recebe o número de meses trabalhados.
-                        except ValueError: # Caso aconteça um 'ValueError' informe.
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                            sleep(1)
+                            sleep(1.5)
                             os.system('cls') or None
                         except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
                             print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
@@ -112,7 +112,7 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
                         if Pergunta == 'S' or Pergunta == 'N':
                             print('-' * 80)
                             break 
@@ -126,15 +126,15 @@ while True: # Loop do menu principal.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True:
-                        try:
+                        try: # Tente executar os comandos.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
                             print('-' * 80)
                             print(' ' * 26 + '\033[0;36mCÁLCULO DO VALOR DO INSS\033[m') # Título.
                             print('-' * 80)
                             SalarioInss = float(input('Valor do salário bruto: ')) # Variável que recebe valor do salário.
-                        except ValueError: # Caso aconteça um 'ValueError' informe.
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                            sleep(1)
+                            sleep(1.5)
                             os.system('cls') or None
                         except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
                             print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
@@ -151,7 +151,7 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
                         if Pergunta == 'S' or Pergunta == 'N':
                             print('-' * 80)
                             break 
@@ -165,20 +165,20 @@ while True: # Loop do menu principal.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True:
-                        try:
+                        try: # Tente executar os comandos.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
                             print('-' * 80)
                             print(' ' * 26 + '\033[0;36mCÁLCULO DO VALOR DO IRRF\033[m') # Título.
                             print('-' * 80)
                             SalarioIrrf = float(input('Valor do salário bruto: ')) # Variável que recebe valor do salário.
                             NumDependentesIrrf = int(input('Número de dependentes: ')) # Variável que recebe o número de dependentes.
-                        except ValueError: # Caso aconteça um 'ValueError' informe.
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                            sleep(1)
+                            sleep(1.5)
                             os.system('cls') or None
                         except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
                             print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
-                            sleep(1)
+                            sleep(1.5)
                             print('-' * 80)
                             break
                         else:
@@ -194,7 +194,7 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
                         if Pergunta == 'S' or Pergunta == 'N':
                             print('-' * 80)
                             break 
@@ -208,13 +208,13 @@ while True: # Loop do menu principal.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True:
-                        try:
+                        try: # Tente executar os comandos.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
                             print('-' * 80)
                             print(' ' * 28 + '\033[0;36mCÁLCULO DO VALOR DO FGTS\033[m') # Título.
                             print('-' * 80)
                             SalarioFgts = float(input('Valor do salário bruto: ')) # Variável que recebe valor do salário bruto.
-                        except ValueError: # Caso aconteça um 'ValueError' informe.
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
                             sleep(1)
                             os.system('cls') or None
@@ -233,7 +233,7 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
                         if Pergunta == 'S' or Pergunta == 'N':
                             print('-' * 80)
                             break 
@@ -247,7 +247,7 @@ while True: # Loop do menu principal.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True:
-                        try:
+                        try: # Tente executar os comandos.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
                             print('-' * 80)
                             print(' ' * 30 + '\033[0;36mCÁLCULO DE FÉRIAS\033[m') # Título.
@@ -282,9 +282,9 @@ while True: # Loop do menu principal.
                                     print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m')
                                 elif AdiantarTerco == 'S':
                                     break
-                        except ValueError: # Caso aconteça um 'ValueError' informe.
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                            sleep(1)
+                            sleep(1.5)
                             os.system('cls') or None
                         except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
                             print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
@@ -314,7 +314,7 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
                         if Pergunta == 'S' or Pergunta == 'N':
                             print('-' * 80)
                             break 
@@ -327,110 +327,47 @@ while True: # Loop do menu principal.
             elif Escolha == 6: # Opção para o cálculo de hora extra.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
-                    os.system('cls') or None # Comando para limpar a tela do terminal.
-                    print('-' * 80)
-                    print(' ' * 29 + '\033[0;36mCÁLCULO DE HORA EXTRA\033[m') # Título.
-                    print('-' * 80)
-                    MenuHoraExtra = ['Valor HORA EXTRA', 'Total HORA EXTRA'] # Lista com as opções de para hora extra.
-                    for IndiceExtra, ListaExtra in enumerate(MenuHoraExtra):
-                        print(f'\033[0;34m[{IndiceExtra}]\033[m {ListaExtra}') # Imprimir a lista de opções.
-                    print('\033[0;31m[88] VOLTAR AO MENU\033[m') # Opção para voltar ao menu principal.
-                    print('-' * 80)
                     while True:
-                        EscolhaExtra = int(input('ESCOLHA UMA OPÇÃO ACIMA: ')) # Variável que recebe a opção a ser executada.
-                        if EscolhaExtra == 0: # Opção para o cálculo do valor da hora extra.
+                        try: # Tente executar os comandos.
                             os.system('cls') or None # Comando para limpar a tela do terminal.
-                            while True:
-                                while True:
-                                    try:
-                                        os.system('cls') or None # Comando para limpar a tela do terminal.
-                                        print('-' * 80)
-                                        print(' ' * 26 + '\033[0;36mCÁLCULO DO VALOR HORA EXTRA\033[m') # Título.
-                                        print('-' * 80)
-                                        SalarioExtra = float(input('Salário base: ')) # Variável que recebe o salário base para o cálculo da hora extra.
-                                        JornadaHoras = float(input('Jornada mensal (horas): ')) # Variável que recebe a quantidade de horas da jornada de trabalho.
-                                        PorcentagemExtra = int(input('Adicional hora extra (%): ')) # Variável que recebe a porcentagem do adicional de hora extra.
-                                    except ValueError: # Caso aconteça um 'ValueError' informe.
-                                        print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                                        sleep(1)
-                                        os.system('cls') or None
-                                    except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
-                                        print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
-                                        sleep(1)
-                                        print('-' * 80)
-                                        break
-                                    else:
-                                        print(' ')
-                                        print('Cálculando... Aguarde!')
-                                        print(' ')
-                                        sleep(0.75) # Temporizador de 0.75 segundos.
-                                        print(f'O valor da sua hora é \033[0;32mR$ {Tratamento.Milhares(Cálculos.Hora(SalarioExtra, JornadaHoras))}\033[m') # Mostra o cálculo do valor da hora.
-                                        print(f'O valor da sua hora extra com adicional de {PorcentagemExtra}%', end=' ') # Mostra a porcentagem utilizada para cálcular a hora.
-                                        print(f'é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras))}\033[m') # Mostra o valor da hora extra cálculado.
-                                        print('-' * 80)
-                                        break
-                                while True:
-                                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o primeiro cálculo.
-                                    if Pergunta == 'S' or Pergunta == 'N':
-                                        print('-' * 80)
-                                        break 
-                                    print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m') # Aviso ao usuário.
-                                if Pergunta == 'N': # Terminar o loop.
-                                    os.system('cls') or None # Comando para limpar a tela do terminal.
-                                    break
-                            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu de hora extra.
-                                break
-                        elif EscolhaExtra == 1: # Opção para o cálculo do valor total da hora extra.
-                            os.system('cls') or None # Comando para limpar a tela do terminal.
-                            while True:
-                                while True:
-                                    try:
-                                        os.system('cls') or None # Comando para limpar a tela do terminal.
-                                        print('-' * 80)
-                                        print(' ' * 24 + '\033[0;36mCÁLCULO DO VALOR TOTAL HORA EXTRA\033[m') # Título.
-                                        print('-' * 80)
-                                        SalarioExtra = float(input('Salário base: ')) # Variável que recebe o salário base para o cálculo da hora extra.
-                                        JornadaHoras = float(input('Jornada mensal (horas): ')) # Variável que recebe a quantidade de horas da jornada de trabalho.
-                                        PorcentagemExtra = int(input('Adicional hora extra (%): ')) # Variável que recebe a porcentagem do adicional de hora extra.
-                                        QuantidadeExtra = float(input('Número de horas extras: ')) # Variável que recebe a quantidade de horas extra trabalhadas.
-                                    except ValueError: # Caso aconteça um 'ValueError' informe.
-                                        print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                                        sleep(1)
-                                        os.system('cls') or None
-                                    except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
-                                        print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
-                                        sleep(1)
-                                        print('-' * 80)
-                                        break
-                                    else:
-                                        print(' ')
-                                        print('Cálculando... Aguarde!')
-                                        print(' ')
-                                        sleep(0.75) # Temporizador de 0.75 segundos.
-                                        print(f'Quantidade de horas trabalhadas: \033[0;32m{QuantidadeExtra:.2f}\033[m'.replace('.',':')) # Mostra a quantidade de horas utilizadas para fazer o cálculo.
-                                        print(f'Valor total das horas extras \033[0;32mR$ {Tratamento.Milhares(((Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras)) * QuantidadeExtra))}\033[m') # Mostra o valor total de horas extras cálculados.
-                                        print('-' * 80)
-                                        break
-                                while True:
-                                    Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o cálculo.
-                                    if Pergunta == 'S' or Pergunta == 'N':
-                                        print('-' * 80)
-                                        break 
-                                    print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m') # Aviso ao usuário.
-                                if Pergunta == 'N': # Terminar o loop.
-                                    os.system('cls') or None # Comando para limpar a tela do terminal.
-                                    break
-                            if Pergunta == 'N': # Terminar o cálculo e voltar ao menu de hora extra.
-                                break
-                        elif EscolhaExtra not in [0, 1]:
-                            if EscolhaExtra == 88: # Opção para encerrar o menu de hora extra.
-                                os.system('cls') or None # Comando para limpar a tela do terminal.
-                                break
-                            else:
-                                print('\033[0;31mERRO! Opção inválida, tente novamente.\033[m') # Aviso de entrada inválida.
-                    if EscolhaExtra == 88:
+                            print('-' * 80)
+                            print(' ' * 29 + '\033[0;36mCÁLCULO DE HORA EXTRA\033[m') # Título.
+                            print('-' * 80)
+                            SalarioExtra = float(input('Salário base: ')) # Variável que recebe o salário base para o cálculo da hora extra.
+                            JornadaHoras = float(input('Jornada mensal (horas): ')) # Variável que recebe a quantidade de horas da jornada de trabalho.
+                            PorcentagemExtra = int(input('Adicional hora extra (%): ')) # Variável que recebe a porcentagem do adicional de hora extra.
+                            QuantidadeExtra = float(input('Número de horas extras: ')) # Variável que recebe a quantidade de horas extra trabalhadas.   
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
+                            print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
+                            sleep(1.5)
+                            os.system('cls') or None
+                        except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
+                            print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
+                            sleep(1)
+                            print('-' * 80)
+                            break
+                        else:
+                            print(' ')
+                            print('Cálculando... Aguarde!')
+                            print(' ')
+                            sleep(0.75) # Temporizador de 0.75 segundos.
+                            print(f'O valor da sua hora é \033[0;32mR$ {Tratamento.Milhares(Cálculos.Hora(SalarioExtra, JornadaHoras))}\033[m') # Mostra o cálculo do valor da hora.
+                            print(f'O valor da sua hora extra com adicional de {PorcentagemExtra}%', end=' ') # Mostra a porcentagem utilizada para cálcular a hora.
+                            print(f'é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras))}\033[m') # Mostra o valor da hora extra cálculado.
+                            print(f'Quantidade de horas trabalhadas: \033[0;32m{QuantidadeExtra:.2f}\033[m'.replace('.',':')) # Mostra a quantidade de horas utilizadas para fazer o cálculo.
+                            print(f'Valor total das horas extras \033[0;32mR$ {Tratamento.Milhares(((Cálculos.HoraExtra(Cálculos.Hora(SalarioExtra, JornadaHoras), PorcentagemExtra) + Cálculos.Hora(SalarioExtra, JornadaHoras)) * QuantidadeExtra))}\033[m') # Mostra o valor total de horas extras cálculados.  
+                            print('-' * 80)
+                            break
+                    while True:
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
+                        if Pergunta == 'S' or Pergunta == 'N':
+                            print('-' * 80)
+                            break 
+                        print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m') # Aviso ao usuário.
+                    if Pergunta == 'N': # Terminar o loop.
+                        os.system('cls') or None # Comando para limpar a tela do terminal.
                         break
-                if EscolhaExtra == 88: # Opção para encerrar o menu de hora extra e voltar ao menu principal.
+                if Pergunta == 'N': # Terminar o cálculo e voltar ao menu principal.
                     break
             elif Escolha == 7: # Opção para o cálculo de saldo do FGTS.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
@@ -443,9 +380,9 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             SalarioSaldoFgts = float(input('Valor do salário bruto: ')) # Variável que recebe valor do salário.
                             MesesFgts = int(input('Número de meses trabalhados: ')) # Variável que recebe o número de meses trabalhados.
-                        except ValueError: # Caso aconteça um 'ValueError' informe.
+                        except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
-                            sleep(1)
+                            sleep(1.5)
                             os.system('cls') or None
                         except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
                             print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
@@ -461,7 +398,7 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar o programa.
+                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
                         if Pergunta == 'S' or Pergunta == 'N':
                             print('-' * 80)
                             break 
@@ -478,9 +415,9 @@ while True: # Loop do menu principal.
                     print('\033[0;31mERRO! Opção inválida, tente novamente.\033[m') # Aviso de entrada inválida.
         if Escolha == 99: # Opção para terminar o programa geral.
             break # Termina o loop do menu de opções e encerrar.
-    except ValueError: # Caso aconteça um 'ValueError' informe.
+    except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
         print('\033[0;31mERRO! Digite apenas valores validos, tente novamente!\033[m')
-        sleep(1)
+        sleep(1.5)
         os.system('cls') or None # Comando para limpar a tela do terminal.
     except KeyboardInterrupt: # Caso usuário encerre pelo teclado, termine o programa.
         print('\033[0;31mO usuário encerrou o  programa pelo teclado!\033[m')
@@ -488,6 +425,6 @@ while True: # Loop do menu principal.
         break
 print('-' * 80)
 print(' ' * 30 + '\033[1;31mFIM DO PROGRAMA\033[m') # Aviso de fim do programa.
-sleep(1) # Temporizador de 1 segundo.
+sleep(2) # Temporizador de 1 segundo.
 os.system('cls') or None # Comando para limpar a tela do terminal.
 Tratamento.FecharPrograma() # Função para fechar o terminal de comando no windowns.
