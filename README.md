@@ -1,6 +1,8 @@
 # Cálculos Trabalhistas
 
 ![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
+![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/calculo-de-ferias.png)
+![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/salario-liquido.png)
 
 Meu primeiro programa desenvolvido na linguagem python à partir do meu primeiro contato com a linguagem python e com a programação,
 esse programa foi desenvolvido com intuito de aprendizagem. Trata-se de um programa que realiza diversos cálculos trabalhistas à partir 
