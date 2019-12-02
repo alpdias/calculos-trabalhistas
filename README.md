@@ -15,8 +15,6 @@ PT-BR </br>
 Observações: Programa apresenta erros de 'syntax' com os códigos de cores ao ser executado na IDE do Python, o programa foi criado e
 utilizado com 100% das suas funções na IDE do VSCode (Pode ser executado também no terminal de comando).
 
-![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/calculo-de-ferias.png)
-
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 My first program developed in the python language from my first contact with the python language and programming, This program was
@@ -31,7 +29,5 @@ PT-BR </br>
 
 Remarks: Program has color coded 'syntax' errors when running In Python IDE, the program was created and used with 100% of its functions
 in VSCode IDE(Can also be executed at the command terminal).
-
-![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/salario-liquido.png)
 
 ----------------------------------------------------------------------------------------------------------------------------------------
