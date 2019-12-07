@@ -1,11 +1,11 @@
 # Cálculos Trabalhistas
 
-![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
-
 Meu primeiro programa desenvolvido na linguagem python à partir do meu primeiro contato com a linguagem python e com a programação,
 esse programa foi desenvolvido com intuito de aprendizagem. Trata-se de um programa que realiza diversos cálculos trabalhistas à partir 
 da escolha do usuário que tem acesso a um menu de opções, e dos dados de entrada inseridos pelo usuário, retornando resultados e novas
 opções. Esse programa foi desenvolvido para rodar inicialmente no terminal.
+
+![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
 
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
