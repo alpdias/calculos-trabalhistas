@@ -1,5 +1,5 @@
 '''
-@Autor: Paulo Alcântara https://github.com/alpdias
+@Autor: Paulo https://github.com/alpdias
 '''
 # Funções para tratamento e sistema.
 def BarraDeProgresso():
