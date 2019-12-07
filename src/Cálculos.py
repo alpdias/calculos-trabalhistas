@@ -1,5 +1,5 @@
 '''
-@Autor: Paulo Alcântara https://github.com/alpdias
+@Autor: Paulo https://github.com/alpdias
 '''
 # Funções para realizar os cálculos trabalhistas.
 def Inss(valor=0):
