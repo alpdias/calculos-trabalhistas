@@ -1,5 +1,5 @@
 '''
-@Autor: Paulo Alcântara https://github.com/alpdias
+@Autor: Paulo https://github.com/alpdias
 '''
 # Programa principal.
 from datetime import date # Biblioteca de datas.
