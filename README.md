@@ -13,7 +13,7 @@ Códificação: -&lowast;- coding: utf-8 -&lowast;- </br>
 PT-BR </br>
 
 Observações: Programa apresenta erros de 'syntax' com os códigos de cores ao ser executado na IDE do Python, o programa foi criado e
-utilizado com 100% das suas funções na IDE do VSCode (Pode ser executado também no terminal de comando).
+utilizado com 100% das suas funções na IDE do VSCode (pode ser executado também no terminal de comando).
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -32,6 +32,6 @@ Coding: -&lowast;- coding: utf-8 -&lowast;- </br>
 PT-BR </br>
 
 Remarks: Program has color coded 'syntax' errors when running In Python IDE, the program was created and used with 100% of its functions
-in VSCode IDE(Can also be executed at the command terminal).
+in VSCode IDE (can also be executed at the command terminal).
 
 ----------------------------------------------------------------------------------------------------------------------------------------
