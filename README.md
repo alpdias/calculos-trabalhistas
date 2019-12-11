@@ -17,6 +17,8 @@ utilizado com 100% das suas funções na IDE do VSCode (Pode ser executado tamb�
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
+# Labor Calculations
+
 My first program developed in the python language from my first contact with the python language and programming, This program was
 developed for learning purposes. It is a program that performs various labor calculations from choosing the user who has access to a 
 menu of options, and the input data entered by the user, returning results and new
