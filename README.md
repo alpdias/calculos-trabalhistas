@@ -24,6 +24,8 @@ developed for learning purposes. It is a program that performs various labor cal
 menu of options, and the input data entered by the user, returning results and new
 options. This program was designed to initially run on the terminal.
 
+![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
+
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
 Coding: -&lowast;- coding: utf-8 -&lowast;- </br>
