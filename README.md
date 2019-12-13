@@ -1,4 +1,4 @@
-# Cálculos Trabalhistas
+# Cálculos trabalhistas
 
 Meu primeiro programa desenvolvido na linguagem python à partir do meu primeiro contato com a linguagem python e com a programação, esse programa foi desenvolvido com intuito de aprendizagem. Trata-se de um programa que realiza diversos cálculos trabalhistas à partir da escolha do usuário que tem acesso a um menu de opções, e dos dados de entrada inseridos pelo usuário, retornando resultados e novas opções. Esse programa foi desenvolvido para rodar inicialmente no terminal. 
 
@@ -13,7 +13,7 @@ Observações: Programa apresenta erros de 'syntax' com os códigos de cores ao 
 
 ---------------------------------------------------------------------------------------------------------------------------------------
 
-# Labor Calculations
+# Labor calculations
 
 My first program developed in the python language from my first contact with the python language and programming, This program was developed for learning purposes. It is a program that performs various labor calculations from choosing the user who has access to a menu of options, and the input data entered by the user, returning results and new options. This program was designed to initially run on the terminal.
 
