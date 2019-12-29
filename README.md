@@ -5,7 +5,7 @@ Meu primeiro programa desenvolvido na linguagem python à partir do meu primeiro
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
 Códificação: -&lowast;- coding: utf-8 -&lowast;- </br>
-PT-BR </br>
+pt-BR </br>
 
 ![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
 
@@ -20,7 +20,7 @@ My first program developed in the python language from my first contact with the
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
 Coding: -&lowast;- coding: utf-8 -&lowast;- </br>
-PT-BR </br>
+pt-BR </br>
 
 ![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
 
