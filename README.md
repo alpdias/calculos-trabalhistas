@@ -7,7 +7,7 @@ Microsoft VSCode 1.38.1 </br>
 Codificação: -&lowast;- coding: utf-8 -&lowast;- </br>
 pt-BR </br>
 
-![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
+![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/img/menu-inicial.png)
 
 <strong>Módulos Python</strong>
 
@@ -26,7 +26,7 @@ Microsoft VSCode 1.38.1 </br>
 Coding: -&lowast;- coding: utf-8 -&lowast;- </br>
 pt-BR </br>
 
-![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/_img/menu-inicial.png)
+![](https://github.com/alpdias/calculos-trabalhistas-python/blob/master/img/menu-inicial.png)
 
 <strong>Python modules</strong>
 
