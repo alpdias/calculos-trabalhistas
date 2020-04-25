@@ -2,7 +2,7 @@
 
 Meu primeiro projeto desenvolvido na linguagem Python à partir do meu primeiro contato com a programação, esse projeto foi desenvolvido com intuito de aprendizagem. Trata-se de um script em Python que realiza diversos cálculos trabalhistas à partir da escolha do usuário que tem acesso a um menu de opções, e dos dados de entrada inseridos pelo mesmo, retornando resultados e novas opções. 
 
-Andamento -> <strong>100%</strong> (em processo de reformulção)
+Andamento -> <strong>100%</strong> (em processo de reformulação)
 
 Python 3.7.4 </br>
 Microsoft VSCode 1.38.1 </br>
