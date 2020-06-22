@@ -15,10 +15,6 @@ pt-BR </br>
 
 > pip install tqdm
 
-<strong>Observações:</strong> 
-
-* O script apresenta erros de 'syntax' com os códigos de cores ao ser executado na IDE do Python, o projeto foi desenvolvido com 100% das suas funções na IDE do VSCode (pode ser executado também no terminal de comando, sem apresentar problemas). O código contem comandos especificos para o sistema Windows (ao utilizar a biblioteca 'os'), atente-se a isso caso ocorra erros ao rodar o script em outro sistema.
-
 ---------------------------------------------------------------------------------------------------------------------------------------
 
 # Labor calculations
@@ -37,9 +33,5 @@ pt-BR </br>
 <strong>Python modules</strong>
 
 > pip install tqdm
-
-<strong>Note:</strong> 
-
-* The script presents syntax errors with color codes when executed in the Python IDE, the project was developed with 100% of its functions in the VSCode IDE (it can also be executed in the command terminal, without problems).  The code contains commands specific to the Windows system (when using the 'os' library), be aware of this if errors occur when running the script on another system.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
