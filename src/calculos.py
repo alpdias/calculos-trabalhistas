@@ -2,85 +2,85 @@
 @Autor: Paulo https://github.com/alpdias
 '''
 # Funções para realizar os cálculos trabalhistas.
-def Inss(valor=0):
+def inss(valor=0):
     """
     -> Função para cálcular o valor do INSS.
     :param valor: Valor do salário.
     :return: Retorna o valor do INSS e alíquota utilizada.
     """
-    Inss = []
+    inss = []
     if valor < 1751.81: 
-        Inss.append((valor * 8) / 100) # Alíquota de 8%.
-        Inss.append('8')
+        inss.append((valor * 8) / 100) # Alíquota de 8%.
+        inss.append('8')
     elif valor >= 1751.81 and valor <= 2919.72:
-        Inss.append((valor * 9) / 100) # Alíquota de 9%.
-        Inss.append('9')
+        inss.append((valor * 9) / 100) # Alíquota de 9%.
+        inss.append('9')
     elif valor >= 2919.72:
-        Inss.append((valor * 11) / 100) # Alíquota de 11%.
-        Inss.append('11')
-    return Inss
+        inss.append((valor * 11) / 100) # Alíquota de 11%.
+        inss.append('11')
+    return inss
 
 
-def Dependentes(valor=0):
+def dependentes(valor=0):
     """
     -> Função para cálcular o valor da dedução por dependetes.
     :param valor: Valor de base para o cálculo da dedução por dependetes.
     :return: Retorna o valor da dedução por dependentes.
     """
-    Dependentes = 0
+    dependentes = 0
     if valor > 0:
-        Dependentes = (valor * 189.59)
-    return Dependentes
+        dependentes = (valor * 189.59)
+    return dependentes
 
 
-def Irrf(valor=0):
+def irrf(valor=0):
     """
     -> Função para cálcular o valor do IRRF.
     :param valor: Valor base do salário para cálculo do IRRF.
     :return: Retorna o valor do IRRF e alíquota utilizada.
     """
-    Irrf = []
+    irrf = []
     if valor < 1903.99:
-        Irrf.append(0)
-        Irrf.append(0)
+        irrf.append(0)
+        irrf.append(0)
     elif valor >= 1903.99 and valor <= 2826.65:
-        Irrf.append((valor * 7.5) / 100 - 142.80) # Alíquota de 7.5%, menos parcela de dedução.
-        Irrf.append('7,5')
+        irrf.append((valor * 7.5) / 100 - 142.80) # Alíquota de 7.5%, menos parcela de dedução.
+        irrf.append('7,5')
     elif valor >= 2826.66 and valor <= 3751.05:
-        Irrf.append((valor * 15) / 100 - 354.80) # Alíquota de 15%, menos parcela de dedução.
-        Irrf.append('15')
+        irrf.append((valor * 15) / 100 - 354.80) # Alíquota de 15%, menos parcela de dedução.
+        irrf.append('15')
     elif valor >= 3751.06 and valor <= 4664.68:
-        Irrf.append((valor * 22.5) / 100 - 636.13) # Alíquota de 22.5%, menos parcela de dedução.
-        Irrf.append('22,5')
+        irrf.append((valor * 22.5) / 100 - 636.13) # Alíquota de 22.5%, menos parcela de dedução.
+        irrf.append('22,5')
     elif valor > 4664.68:
-        Irrf.append((valor * 27.5) / 100 - 869.36) # Alíquota de 27.5%, menos parcela de dedução.
-        Irrf.append('27,5')
-    return Irrf 
+        irrf.append((valor * 27.5) / 100 - 869.36) # Alíquota de 27.5%, menos parcela de dedução.
+        irrf.append('27,5')
+    return irrf 
 
 
-def Fgts(valor=0):
+def fgts(valor=0):
     """
     -> Função para cálcular o valor do FGTS.
     :param valor: Valor do salário.
     :return: Retorna o valor do FGTS.
     """
-    Fgts = (valor * 8) / 100
-    return Fgts
+    fgts = (valor * 8) / 100
+    return fgts
 
 
-def Adiantamento(valor=0, mes=0):
+def adiantamento(valor=0, mes=0):
     """
     -> Função para cálcular o valor da primeira parcela do décimo terceiro (adiantamento).
     :param valor: Valor do salário.
     :param mes: Número de meses trabalhados.
     :return: Retorna o valor da primeira parcela do décimo terceiro (adiantamento).
     """
-    Adiantamento = 0
-    Adiantamento = (((valor / 12) * mes) / 2)
-    return Adiantamento
+    adiantamento = 0
+    adiantamento = (((valor / 12) * mes) / 2)
+    return adiantamento
 
 
-def Decimo(valor=0, mes=0, dep=0):
+def decimo(valor=0, mes=0, dep=0):
     """
     -> Função para cálcular o valor da segunda parcela do décimo terceiro.
     :param valor: Valor base do salário para cálcular a segunda parcela do décimo terceiro.
@@ -88,15 +88,15 @@ def Decimo(valor=0, mes=0, dep=0):
     :param dep: Número de dependentes.
     :return: Retorna o valor da segunda parcela do décimo terceiro.
     """
-    Decimo = 0
-    Decimo = ((valor / 12) * mes)
-    CalculoBaseDependentes = Decimo - Inss(Decimo)[0]
-    CalculoBaseIR = CalculoBaseDependentes - Dependentes(dep)
-    CalculoDecimo = Decimo - Adiantamento(valor, mes) - Inss(Decimo)[0] - Irrf(CalculoBaseIR)[0]
-    return CalculoDecimo
+    decimo = 0
+    decimo = ((valor / 12) * mes)
+    calculoBaseDependentes = decimo - inss(decimo)[0]
+    calculoBaseIR = calculoBaseDependentes - dependentes(dep)
+    calculoDecimo = decimo - adiantamento(valor, mes) - inss(decimo)[0] - irrf(calculoBaseIR)[0]
+    return calculoDecimo
 
 
-def SalarioLiquido(valor=0, dep=0, desc=0):
+def salarioLiquido(valor=0, dep=0, desc=0):
     """
     -> Função para cálcular o valor do salário líquido.
     :param valor: Valor do salário bruto.
@@ -104,36 +104,36 @@ def SalarioLiquido(valor=0, dep=0, desc=0):
     :param desc: Valor de outros descontos.
     :return: Retorna o valor do salário liquido.
     """
-    CalculoBaseIrrf = 0
-    CalculoBaseIrrf = ((valor - Inss(valor)[0]) - Dependentes(dep))
-    CalculoBaseSalario = Irrf(CalculoBaseIrrf)[0]
-    CalculoFinalSalario = (((valor - Inss(valor)[0]) - CalculoBaseSalario) - desc)
-    return CalculoFinalSalario
+    calculoBaseIrrf = 0
+    calculoBaseIrrf = ((valor - inss(valor)[0]) - dependentes(dep))
+    calculoBaseSalario = irrf(calculoBaseIrrf)[0]
+    calculoFinalSalario = (((valor - inss(valor)[0]) - calculoBaseSalario) - desc)
+    return calculoFinalSalario
 
 
-def Hora(valor=0, quant=0):
+def hora(valor=0, quant=0):
     """
     -> Função para cálcular o valor da hora/trabalho.
     :param valor: Valor do salário.
     :param quant: Quantidade da jornada de hora/trabalho no mês.
     :return: Retorna o valor da hora/trabalho.
     """
-    Hora = (valor / quant)
-    return Hora
+    hora = (valor / quant)
+    return hora
 
 
-def HoraExtra(valor=0, porc=0):
+def horaExtra(valor=0, porc=0):
     """
     -> Função para cálcular o valor da hora extra.
     :param valor: Valor do salário.
     :param porc: Valor em porcentagem do adicional de hora extra.
     :return: Retorna o valor da hora extra.
     """
-    HoraExtra = (valor * (porc / 100))
-    return HoraExtra
+    horaExtra = (valor * (porc / 100))
+    return horaExtra
 
 
-def ValorFerias(valor=0, dias=0, extra=0):
+def valorFerias(valor=0, dias=0, extra=0):
     """
     -> Função para cálcular o valor férias.
     :param valor: Valor do salário base.
@@ -141,8 +141,8 @@ def ValorFerias(valor=0, dias=0, extra=0):
     :param extra: Valor da média de horas extras no ano.
     :return: Retorna o valor férias.
     """
-    BaseValorFerias = ((valor / 30) * dias)
-    BaseValorExtra = ((extra / 30) * dias)
-    ValorFerias = (BaseValorFerias + BaseValorExtra)
-    return ValorFerias
+    baseValorFerias = ((valor / 30) * dias)
+    baseValorExtra = ((extra / 30) * dias)
+    valorFerias = (baseValorFerias + baseValorExtra)
+    return valorFerias
 
