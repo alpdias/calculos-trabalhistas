@@ -5,9 +5,9 @@
 from datetime import date # Biblioteca de datas.
 import os # Biblioteca de comandos do sistema.
 from time import sleep # Biblioteca de tempo.
-import Cálculos # Biblioteca de cálculos.
-import Tratamento # Biblioteca de tratamento.
-Tratamento.BarraDeProgresso() # Carrega barra de progresso.
+import calculos # Biblioteca de cálculos.
+import tratamento # Biblioteca de tratamento.
+tratamento.BarraDeProgresso() # Carrega barra de progresso.
 MenuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresentada no menu inicial.
                 'Décimo terceiro', 
                 'INSS', 
