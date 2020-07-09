@@ -2,7 +2,7 @@
 @Autor: Paulo https://github.com/alpdias
 '''
 # Funções para tratamento e sistema.
-def BarraDeProgresso():
+def barraProgresso():
     """
     -> Função para mostrar uma barra de progresso.
     :param: 
@@ -25,7 +25,7 @@ def BarraDeProgresso():
     os.system('cls') or None # Comando para limpar a tela do terminal.
 
 
-def FecharPrograma():
+def fecharPrograma():
     """
     -> Função de fechar terminal aberto no windows.
     :param: 
@@ -37,19 +37,19 @@ def FecharPrograma():
     os.system('TASKKILL /F /IM powershell.exe') # Fechar o PowerShell.exe.
     
 
-def Idenficação():
+def idenficaçao():
     """
     -> Função para identificar e apresentar usuário do programa.
     :param: 
     :return:
     """
     import os
-    Usuario = (os.getlogin()).upper() # Recebe a idenficação do usuário.
+    usuario = (os.getlogin()).upper() # Recebe a idenficação do usuário.
     print(' ')
-    print(f'Usuário: \033[0;36m{Usuario}\033[m') # Mostra o nome do usuário.
+    print(f'Usuário: \033[0;36m{usuario}\033[m') # Mostra o nome do usuário.
 
 
-def Milhares(numero=0):
+def milhares(numero=0):
     """
     -> Função tratar o número separando por milhares no padrão do local.
     :param numero: Número para ser formatado.
