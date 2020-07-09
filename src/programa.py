@@ -7,8 +7,8 @@ import os # Biblioteca de comandos do sistema.
 from time import sleep # Biblioteca de tempo.
 import calculos # Biblioteca de cálculos.
 import tratamento # Biblioteca de tratamento.
-tratamento.BarraDeProgresso() # Carrega barra de progresso.
-MenuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresentada no menu inicial.
+tratamento.barraDeProgresso() # Carrega barra de progresso.
+menuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresentada no menu inicial.
                 'Décimo terceiro', 
                 'INSS', 
                 'IRRF', 
@@ -17,19 +17,19 @@ MenuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresen
                 'Hora Extra', 
                 'Saldo FGTS'] 
 while True: # Loop do menu principal.
-    Tratamento.Idenficação() # Função para fazer a identificação do usuário.
+    tratamento.idenficação() # Função para fazer a identificação do usuário.
     print('-' * 80)
-    Ano = date.today().year # Variável que recebe o ano atual.
-    print(' ' * 26 + f'\033[0;36mCÁLCULOS TRABALHISTAS {Ano}\033[m') # Título do programa.
+    ano = date.today().year # Variável que recebe o ano atual.
+    print(' ' * 26 + f'\033[0;36mCÁLCULOS TRABALHISTAS {ano}\033[m') # Título do programa.
     print('-' * 80)
-    for Indice, Lista in enumerate(MenuCalculos): # Laço para gerar um indice na lista de opções.
-        print(f'\033[0;34m[{Indice}]\033[m {Lista}') # Imprimir a lista de opções.
+    for indice, lista in enumerate(menuCalculos): # Laço para gerar um indice na lista de opções.
+        print(f'\033[0;34m[{indice}]\033[m {lista}') # Imprimir a lista de opções.
     print('\033[0;31m[99] ENCERRAR PROGRAMA\033[m') # Opção para encerrar programa.
     print('-' * 80)
     try: # Tente executar os comandos.
         while True: # Loop das opcões de cálculos.
-            Escolha = int(input('ESCOLHA UMA OPÇÃO ACIMA: ')) # Variável que recebe a opção a ser executada.
-            if Escolha == 0: # Opção para o cálculo de salário líquido.
+            escolha = int(input('ESCOLHA UMA OPÇÃO ACIMA: ')) # Variável que recebe a opção a ser executada.
+            if escolha == 0: # Opção para o cálculo de salário líquido.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True: 
@@ -38,9 +38,9 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             print(' ' * 26 + '\033[0;36mCÁLCULO DO SALÁRIO LÍQUIDO\033[m') # Título.
                             print('-' * 80)
-                            SalarioLiquido = float(input('Valor do salário bruto: ')) # Variável que recebe o valor do salário bruto.
-                            NumDependentesSL = int(input('Número de dependentes: ')) # Variável que recebe número de dependentes.
-                            OutrosDescontos = float(input('Outros descontos: ')) # Variável que recebe o valor de outros descontos.
+                            salarioLiquido = float(input('Valor do salário bruto: ')) # Variável que recebe o valor do salário bruto.
+                            numDependentesSL = int(input('Número de dependentes: ')) # Variável que recebe número de dependentes.
+                            outrosDescontos = float(input('Outros descontos: ')) # Variável que recebe o valor de outros descontos.
                         except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
                             sleep(1.5)
@@ -55,30 +55,30 @@ while True: # Loop do menu principal.
                             print('Cálculando... Aguarde!')
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos.
-                            print(f'Valor do INSS é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Inss(SalarioLiquido)[0])}\033[m', end='') # Resultado do cálculo do INSS.
-                            print(f', alíquota de {Cálculos.Inss(SalarioLiquido)[1]}%') # Alíquota utilizada para cálcular o INSS.
-                            if Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0] == 0: # Opção caso não tenha desconto de IRRF.
+                            print(f'Valor do INSS é de \033[0;32mR$ {tratamento.milhares(calculos.inss(salarioLiquido)[0])}\033[m', end='') # Resultado do cálculo do INSS.
+                            print(f', alíquota de {calculos.Inss(salarioLiquido)[1]}%') # Alíquota utilizada para cálcular o INSS.
+                            if calculos.Irrf((salarioLiquido - calculos.Inss(salarioLiquido)[0]) - calculos.Dependentes(numDependentesSL))[0] == 0: # Opção caso não tenha desconto de IRRF.
                                 print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário.
                             else:
-                                print(f'Valor do IRRF é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[0])}\033[m', end='') # Resultado do cálculo do IRRF.
-                                print(f', alíquota de {Cálculos.Irrf((SalarioLiquido - Cálculos.Inss(SalarioLiquido)[0]) - Cálculos.Dependentes(NumDependentesSL))[1]}%',) # Alíquota utilizada para cálcular o IRRF.
-                            print(f'Número de dependetes: \033[0;32m{NumDependentesSL}\033[m') # Mostra o número de dependentes utilizado.
-                            print(f'Outros descontos: \033[0;32mR$ {Tratamento.Milhares(OutrosDescontos)}\033[m') # Mostra o valor de outros descontos sobre o salário.
-                            print(f'O valor do salário líquido é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.SalarioLiquido(SalarioLiquido, NumDependentesSL, OutrosDescontos))}\033[m') # Mostra o valor final do salário líquido.
+                                print(f'Valor do IRRF é de \033[0;32mR$ {tratamento.milhares(calculos.irrf((salarioLiquido - calculos.inss(salarioLiquido)[0]) - calculos.dependentes(numDependentesSL))[0])}\033[m', end='') # Resultado do cálculo do IRRF.
+                                print(f', alíquota de {calculos.irrf((salarioLiquido - calculos.inss(salarioLiquido)[0]) - calculos.Dependentes(numDependentesSL))[1]}%',) # Alíquota utilizada para cálcular o IRRF.
+                            print(f'Número de dependetes: \033[0;32m{numDependentesSL}\033[m') # Mostra o número de dependentes utilizado.
+                            print(f'Outros descontos: \033[0;32mR$ {tratamento.milhares(outrosDescontos)}\033[m') # Mostra o valor de outros descontos sobre o salário.
+                            print(f'O valor do salário líquido é de \033[0;32mR$ {tratamento.milhares(calculos.salarioLiquido(salarioLiquido, numDependentesSL, outrosDescontos))}\033[m') # Mostra o valor final do salário líquido.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
-                        if Pergunta == 'S' or Pergunta == 'N':
+                        pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
+                        if pergunta == 'S' or pergunta == 'N':
                             print('-' * 80)
                             break 
                         print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m') # Aviso ao usuário.
-                    if Pergunta == 'N':
+                    if pergunta == 'N':
                         os.system('cls') or None # Comando para limpar a tela do terminal.
                         break
-                if Pergunta == 'N': # Terminar o loop de cálculo e voltar ao menu principal.
+                if pergunta == 'N': # Terminar o loop de cálculo e voltar ao menu principal.
                     break
-            elif Escolha == 1: # Opção para o cálculo de décimo terceiro salário.
+            elif escolha == 1: # Opção para o cálculo de décimo terceiro salário.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
                 while True:
                     while True:
@@ -87,11 +87,11 @@ while True: # Loop do menu principal.
                             print('-' * 80)
                             print(' ' * 22 + '\033[0;36mCÁLCULO DO DÉCIMO TERCEIRO SALÁRIO\033[m') # Título.
                             print('-' * 80)
-                            DecimoTerceiro = float(input('Valor do salário bruto: ')) # Variável que recebe o valor do salário.
-                            NumDependentesDecimo = int(input('Número de dependentes: ')) # Variável que recebe número de dependentes.
+                            decimoTerceiro = float(input('Valor do salário bruto: ')) # Variável que recebe o valor do salário.
+                            numDependentesDecimo = int(input('Número de dependentes: ')) # Variável que recebe número de dependentes.
                             print('(\033[0;31mConsiderar para o cálculo apenas os meses em que o trabalhador tenha trabalhado')
                             print(' mais de 15 dias no mês!\033[m)') # Aviso ao usuário.
-                            MesesDecimo = float(input('Número de meses trabalhados: ')) # Variável que recebe o número de meses trabalhados.
+                            mesesDecimo = float(input('Número de meses trabalhados: ')) # Variável que recebe o número de meses trabalhados.
                         except (ValueError, NameError): # Caso aconteça um 'ValueError' ou 'NameError' informe.
                             print('\033[0;31mERRO! Digite apenas valores reais validos, tente novamente!\033[m')
                             sleep(1.5)
@@ -106,21 +106,21 @@ while True: # Loop do menu principal.
                             print('Cálculando... Aguarde!')
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos.
-                            print(f'Valor da 1ª parcela do 13º salário é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo))}\033[m') # Mostra o valor da 1ª parcela do 13º salário (adiantamento).
-                            print(f'Valor da 2ª parcela do 13º salário é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo))}\033[m') # Mostra o valor da 2ª parcela do 13º salário.
-                            print(f'Valor total a receber do 13º salário é de \033[0;32mR$ {Tratamento.Milhares(Cálculos.Adiantamento(DecimoTerceiro, MesesDecimo) + Cálculos.Decimo(DecimoTerceiro, MesesDecimo, NumDependentesDecimo))}\033[m') # Mostra o total a receber do 13º.
+                            print(f'Valor da 1ª parcela do 13º salário é de \033[0;32mR$ {tratamento.milhares(calculos.adiantamento(decimoTerceiro, mesesDecimo))}\033[m') # Mostra o valor da 1ª parcela do 13º salário (adiantamento).
+                            print(f'Valor da 2ª parcela do 13º salário é de \033[0;32mR$ {tratamento.milhares(calculos.decimo(decimoTerceiro, mesesDecimo, numDependentesDecimo))}\033[m') # Mostra o valor da 2ª parcela do 13º salário.
+                            print(f'Valor total a receber do 13º salário é de \033[0;32mR$ {tratamento.milhares(calculos.adiantamento(decimoTerceiro, mesesDecimo) + calculos.decimo(decimoTerceiro, mesesDecimo, numDependentesDecimo))}\033[m') # Mostra o total a receber do 13º.
                             print('-' * 80)
                             break
                     while True:
-                        Pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
-                        if Pergunta == 'S' or Pergunta == 'N':
+                        pergunta = str(input('Deseja fazer um novo cálculo? \033[0;31m[S/N]\033[m ')).strip().upper() # Loop para um novo cálculo ou para parar.
+                        if pergunta == 'S' or pergunta == 'N':
                             print('-' * 80)
                             break 
                         print('\033[0;31mERRO! Entrada inválida, tente novamente.\033[m') # Aviso ao usuário.
-                    if Pergunta == 'N':
+                    if pergunta == 'N':
                         os.system('cls') or None # Comando para limpar a tela do terminal.
                         break
-                if Pergunta == 'N': # Terminar o cálculo e voltar ao menu principal.
+                if pergunta == 'N': # Terminar o cálculo e voltar ao menu principal.
                     break         
             elif Escolha == 2: # Opção para o cálculo de INSS.
                 os.system('cls') or None # Comando para limpar a tela do terminal.
