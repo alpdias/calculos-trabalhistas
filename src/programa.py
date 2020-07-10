@@ -56,7 +56,7 @@ while True: # Loop do menu principal
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos
                             print(f'Valor do INSS é de \033[0;32mR$ {tratamento.milhares(calculos.inss(salarioLiquido)[0])}\033[m', end='') # Resultado do cálculo do INSS
-                            print(f', alíquota de {calculos.Inss(salarioLiquido)[1]}%') # Alíquota utilizada para cálcular o INSS
+                            print(f', alíquota de {calculos.inss(salarioLiquido)[1]}%') # Alíquota utilizada para cálcular o INSS
                             if calculos.irrf((salarioLiquido - calculos.inss(salarioLiquido)[0]) - calculos.dependentes(numDependentesSL))[0] == 0: # Opção caso não tenha desconto de IRRF
                                 print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário
                             else:
