@@ -7,7 +7,7 @@ import os # Biblioteca de comandos do sistema
 from time import sleep # Biblioteca de tempo
 import calculos # Biblioteca de cálculos
 import tratamento # Biblioteca de tratamento
-tratamento.barraDeProgresso() # Carrega barra de progresso
+tratamento.barraProgresso() # Carrega barra de progresso
 menuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresentada no menu inicial
                 'Décimo terceiro', 
                 'INSS', 
@@ -17,7 +17,7 @@ menuCalculos = ['Salário liquido', # Lista com as opções de cálculos apresen
                 'Hora Extra', 
                 'Saldo FGTS'] 
 while True: # Loop do menu principal
-    tratamento.idenficação() # Função para fazer a identificação do usuário
+    tratamento.idenficaçao() # Função para fazer a identificação do usuário
     print('-' * 80)
     ano = date.today().year # Variável que recebe o ano atual
     print(' ' * 26 + f'\033[0;36mCÁLCULOS TRABALHISTAS {ano}\033[m') # Título do programa
@@ -61,7 +61,7 @@ while True: # Loop do menu principal
                                 print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário
                             else:
                                 print(f'Valor do IRRF é de \033[0;32mR$ {tratamento.milhares(calculos.irrf((salarioLiquido - calculos.inss(salarioLiquido)[0]) - calculos.dependentes(numDependentesSL))[0])}\033[m', end='') # Resultado do cálculo do IRRF
-                                print(f', alíquota de {calculos.irrf((salarioLiquido - calculos.inss(salarioLiquido)[0]) - calculos.Dependentes(numDependentesSL))[1]}%',) # Alíquota utilizada para cálcular o IRRF
+                                print(f', alíquota de {calculos.irrf((salarioLiquido - calculos.inss(salarioLiquido)[0]) - calculos.dependentes(numDependentesSL))[1]}%',) # Alíquota utilizada para cálcular o IRRF
                             print(f'Número de dependetes: \033[0;32m{numDependentesSL}\033[m') # Mostra o número de dependentes utilizado
                             print(f'Outros descontos: \033[0;32mR$ {tratamento.milhares(outrosDescontos)}\033[m') # Mostra o valor de outros descontos sobre o salário
                             print(f'O valor do salário líquido é de \033[0;32mR$ {tratamento.milhares(calculos.salarioLiquido(salarioLiquido, numDependentesSL, outrosDescontos))}\033[m') # Mostra o valor final do salário líquido
@@ -146,7 +146,7 @@ while True: # Loop do menu principal
                             print('Cálculando... Aguarde!')
                             print(' ')
                             sleep(0.75) # Temporizador de 0.75 segundos
-                            print(f'O valor do INSS é de \033[0;32mR$ {tratamento.milhares(cálculos.Inss(salarioInss)[0])}\033[m', end='') # Mostra o resultado do cálculo do INSS
+                            print(f'O valor do INSS é de \033[0;32mR$ {tratamento.milhares(calculos.inss(salarioInss)[0])}\033[m', end='') # Mostra o resultado do cálculo do INSS
                             print(f', alíquota de {calculos.inss(salarioInss)[1]}%') # Alíquota utilizada para cálcular o INSS
                             print('-' * 80)
                             break
@@ -190,7 +190,7 @@ while True: # Loop do menu principal
                                 print('\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m') # Aviso ao usuário
                             else:
                                 print(f'O valor do IRRF é de \033[0;32mR$ {tratamento.milhares(calculos.irrf((salarioIrrf - calculos.inss(salarioIrrf)[0]) - calculos.dependentes(numDependentesIrrf))[0])}\033[m', end='') # Mostra o resultado do cálculo do IRRF
-                                print(f', alíquota de {calculos.Irrf((salarioIrrf - calculos.Inss(salarioIrrf)[0]) - calculos.dependentes(numDependentesIrrf))[1]}%') # Alíquota utilizada para cálcular o IRRF
+                                print(f', alíquota de {calculos.irrf((salarioIrrf - calculos.inss(salarioIrrf)[0]) - calculos.dependentes(numDependentesIrrf))[1]}%') # Alíquota utilizada para cálcular o IRRF
                             print('-' * 80)
                             break
                     while True:
@@ -305,8 +305,8 @@ while True: # Loop do menu principal
                                 print(f'Valor do adiantamento da 1ª parcela do 3º salário é de \033[0;32mR$ {tratamento.milhares(calculos.adiantamento(salarioFerias, 12))}\033[m')  # Mostra o valor cálculado do adiantamento do 13º salário
                             baseImpostoFerias = (calculos.valorFerias(salarioFerias, diasFerias, mediaExtraFerias)) + (calculos.valorFerias(salarioFerias, diasFerias, mediaExtraFerias) / 3) # Recebe o valor base para calcular o INSS e o IRRF sobre as férias
                             print(f'Valor do INSS é de \033[0;32mR$ {tratamento.milhares(calculos.inss(baseImpostoFerias)[0])}\033[m', end='') # Mostra o cálculo do valor do INSS
-                            print(f', alíquota de {calculos.Inss(baseImpostoFerias)[1]}%') # Mostra a alíquota utilizada para calcular o INSS
-                            if calculos.Irrf((baseImpostoFerias - calculos.inss(baseImpostoFerias)[0]) - calculos.dependentes(dependentesFerias))[0] == 0: # Recebe o valor base para o cálculo do IRRF
+                            print(f', alíquota de {calculos.inss(baseImpostoFerias)[1]}%') # Mostra a alíquota utilizada para calcular o INSS
+                            if calculos.irrf((baseImpostoFerias - calculos.inss(baseImpostoFerias)[0]) - calculos.dependentes(dependentesFerias))[0] == 0: # Recebe o valor base para o cálculo do IRRF
                                 print('(\033[0;31mA essa faixa salárial não é descontado o IRRF!\033[m)') # Aviso ao usuário
                             else:
                                 print(f'Valor do IRRF é de \033[0;32mR$ {tratamento.milhares(calculos.irrf((baseImpostoFerias - calculos.inss(baseImpostoFerias)[0]) - calculos.dependentes(dependentesFerias))[0])}\033[m', end='') # Mostra o valor cálculado do IRRF
