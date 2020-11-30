@@ -5,7 +5,6 @@ Meu primeiro projeto desenvolvido na linguagem Python à partir do meu primeiro 
 Andamento -> <strong>100%</strong>
 
 Python 3.7.4 </br>
-Microsoft VSCode 1.38.1 </br>
 Codificação: -&lowast;- coding: utf-8 -&lowast;- </br>
 pt-BR </br>
 
@@ -24,7 +23,6 @@ My first project developed in the Python language from my first contact with pro
 Progress -> <strong>100%</strong>
 
 Python 3.7.4 </br>
-Microsoft VSCode 1.38.1 </br>
 Coding: -&lowast;- coding: utf-8 -&lowast;- </br>
 pt-BR </br>
 
